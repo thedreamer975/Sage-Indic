@@ -1,0 +1,61 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+*.so
+*.dylib
+*.dll
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Testing & Linting
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+logs/
+
+# Research Data & Checkpoints (large binary outputs)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/custom/*
+!data/custom/.gitkeep
+!data/custom/**/.gitkeep
+experiments/runs/*
+!experiments/runs/.gitkeep
+*.pt
+*.bin
+*.safetensors
+*.onnx

@@ -1,0 +1,13 @@
+# SAGE-Indic Default Configuration
+project:
+  name: "sage-indic"
+  version: "0.1.0"
+  primary_language: "telugu"
+  target_input_forms:
+    - "TELUGU_NATIVE"
+    - "TELUGU_ROMANIZED"
+    - "TELUGU_ENGLISH_CODEMIX"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"

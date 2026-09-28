@@ -1,0 +1,155 @@
+# SAGE-Indic Data Configuration
+# Defines dataset sources, paths, splits, and custom dataset schemas.
+# Minimal, framework-independent configuration.
+
+project:
+  name: "sage-indic"
+  version: "0.1.0"
+  primary_language: "telugu"
+  iso_639_1: "te"
+  iso_639_3: "tel"
+  script_code: "Telu"
+  target_input_forms:
+    - "TELUGU_NATIVE"
+    - "TELUGU_ROMANIZED"
+    - "TELUGU_ENGLISH_CODEMIX"
+
+paths:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  custom_dir: "data/custom"
+  safety_dir: "data/custom/safety"
+  factuality_dir: "data/custom/factuality"
+  corpus_dir: "data/custom/corpus"
+  tokenization_dir: "data/custom/tokenization"
+
+preprocessing:
+  unicode_normalization: "NFC"
+  strip_control_characters: true
+  preserve_case_for_code_mix: true
+  random_seed: 42
+
+datasets:
+  # 1. Primary Cross-Script & Transliteration Benchmark
+  dakshina:
+    enabled: true
+    source: "google-research-datasets/dakshina"
+    language_code: "te"
+    format: "tsv"
+    subsets:
+      - name: "parallel_sentences"
+        splits: ["train", "dev", "test"]
+        path: "data/raw/dakshina/te/romanized/te.translit.parallel.*.tsv"
+      - name: "lexicon"
+        path: "data/raw/dakshina/te/lexicons/te.translit.lexicon.tsv"
+      - name: "native_wiki"
+        path: "data/raw/dakshina/te/native/te.wiki.native.txt"
+    purpose: "tokenizer_cross_script_eval, transliteration_variation_generation"
+
+  # 2. Standardized Multi-way Parallel Compression Evaluation
+  flores200:
+    enabled: true
+    source: "facebook/flores200"
+    language_code: "tel_Telu"
+    splits: ["dev", "devtest"]
+    format: "parquet"
+    purpose: "tokenizer_fertility_and_compression_baseline"
+
+  # 3. Morphological Ground Truth for Boundary Alignment
+  ud_telugu_mtg:
+    enabled: true
+    source: "UniversalDependencies/UD_Telugu-MTG"
+    format: "conllu"
+    splits: ["train", "dev", "test"]
+    purpose: "morphological_boundary_alignment_ground_truth"
+
+  # 4. Controlled Pre-training & Vocabulary Monolingual Corpus
+  indiccorp_v2:
+    enabled: true
+    source: "ai4bharat/IndicCorpV2"
+    language_code: "tel_Telu"
+    format: "parquet"
+    sample_sentence_limit: 100000
+    purpose: "tokenizer_vocabulary_training_and_unigram_baseline"
+
+  # 5. Question Answering Baseline for Retrieval Grounding
+  indicqa:
+    enabled: true
+    source: "ai4bharat/IndicQA"
+    language_code: "te"
+    splits: ["test", "validation"]
+    format: "jsonl"
+    purpose: "retrieval_and_evidence_baseline_eval"
+
+  # 6. Safety & Jailbreak Robustness Benchmark
+  indicjr:
+    enabled: true
+    source: "IndicJR"
+    language_code: "te"
+    tracks: ["free", "json"]
+    format: "json"
+    purpose: "safety_adversarial_and_jailbreak_baseline"
+
+  # 7. Multi-Task Language Understanding Benchmark
+  milu:
+    enabled: false  # Optional benchmark for downstream LLM evaluation
+    source: "ai4bharat/MILU"
+    language_code: "Telugu"
+    splits: ["test", "validation"]
+    purpose: "downstream_reasoning_and_llm_quality_eval"
+
+custom_datasets:
+  # Custom Matched Cross-Form Safety Dataset
+  sage_safety_te:
+    schema_version: "1.0"
+    path: "data/custom/safety/sage_safety_te.jsonl"
+    forms:
+      - "TELUGU_NATIVE"
+      - "TELUGU_ROMANIZED"
+      - "TELUGU_ENGLISH_CODEMIX"
+    labels:
+      - "SAFE"
+      - "UNSAFE"
+      - "UNCERTAIN"
+    risk_levels:
+      - "NONE"
+      - "LOW"
+      - "MEDIUM"
+      - "HIGH"
+    categories:
+      - "hate_speech_offensive"
+      - "harassment_threats"
+      - "violence_illegal_acts"
+      - "dangerous_misinformation"
+      - "benign_sensitive_historical"
+      - "benign_sensitive_medical"
+      - "benign_sensitive_cultural"
+      - "benign_general"
+
+  # Custom Evidence-Grounded Factuality & Claim Verification Dataset
+  sage_factuality_te:
+    schema_version: "1.0"
+    path: "data/custom/factuality/sage_factuality_te.jsonl"
+    forms:
+      - "TELUGU_NATIVE"
+      - "TELUGU_ROMANIZED"
+      - "TELUGU_ENGLISH_CODEMIX"
+    claim_labels:
+      - "SUPPORTED"
+      - "UNSUPPORTED"
+      - "UNCERTAIN"
+    verification_metrics:
+      - "claim_support_rate"
+      - "unsupported_claim_rate"
+      - "answer_factuality_score"
+
+  # Curated Authoritative Telugu Corpus for Evidence Retrieval
+  sage_corpus_te:
+    schema_version: "1.0"
+    path: "data/custom/corpus/sage_corpus_te.jsonl"
+    domain_topics:
+      - "telugu_literature_and_language"
+      - "andhra_pradesh_and_telangana_history"
+      - "geography_and_monuments"
+      - "science_and_agriculture"
+      - "governance_and_civics"

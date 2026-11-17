@@ -420,23 +420,23 @@ extensions/future work rather than requirements for the initial release.
 The architecture follows the nine-stage pipeline specified in the
 project proposal:
 
-  Stage   Component                     Expected Output
-  ------- ----------------------------- ------------------------------------------------
-  1       User Query                    Native / Romanized / code-mixed text
-  2       Language + Script Detection   Input characteristics
-  3       SAGE Tokenizer                Efficient, linguistically-aware representation
-  4       Safety Layer                  Safe / unsafe / uncertain + risk
-  5       Retriever                     Relevant evidence
-  6       LLM / SLM                     Draft answer
-  7       Claim Extraction              Atomic factual claims
-  8       Evidence Verification         Supported / unsupported / uncertain
-  9       Response Composer             Final answer + evidence + caveats
+  Stage   Component                     Expected Output                                   Implementation Status
+  ------- ----------------------------- ------------------------------------------------ -----------------------------------------------------------------
+  1       User Query                    Native / Romanized / code-mixed text              IMPLEMENTED
+  2       Language + Script Detection   Input characteristics                             IMPLEMENTED
+  3       SAGE Tokenizer                Efficient, linguistically-aware representation   IMPLEMENTED & FROZEN (EVALUATION UNDER REPAIR)
+  4       Safety Layer                  Safe / unsafe / uncertain + risk                  IMPLEMENTED & FROZEN
+  5       Retriever                     Relevant evidence                                 IMPLEMENTED (BM25 + CodeMix + SAGE; 8 conditions evaluated)
+  6       LLM / SLM                     Draft answer                                      IMPLEMENTED (OPTIONAL, PROVIDER-INDEPENDENT)
+  7       Claim Extraction              Atomic factual claims                             IMPLEMENTED (HEURISTIC + EXTRACTIVE)
+  8       Evidence Verification         Supported / unsupported / uncertain               IMPLEMENTED (PHASE 2F RELATION-AWARE)
+  9       Response Composer             Final answer + evidence + caveats                 IMPLEMENTED (PHASE 2G DEMO PROTOTYPE)
 
 ------------------------------------------------------------------------
 
 # 10. Functional Requirements
 
-## FR-01 --- Accept User Input
+## FR-01 --- Accept User Input [IMPLEMENTED]
 
 The system shall accept text input in:
 
@@ -452,7 +452,7 @@ The system shall accept text input in:
 
 ------------------------------------------------------------------------
 
-## FR-02 --- Detect Input Form
+## FR-02 --- Detect Input Form [IMPLEMENTED]
 
 The system shall identify relevant characteristics of the input.
 
@@ -481,7 +481,7 @@ The exact final label taxonomy may be refined during implementation.
 
 # 11. SAGE Tokenizer Requirements
 
-## FR-03 --- Baseline Tokenizers
+## FR-03 --- Baseline Tokenizers [IMPLEMENTED]
 
 The evaluation framework shall support comparison against:
 
@@ -493,7 +493,7 @@ The evaluation framework shall support comparison against:
 The project proposal specifically identifies recent Indic tokenization
 work and MUTANT-Indic as relevant baselines.
 
-## FR-04 --- Morphology-Aware Tokenizer
+## FR-04 --- Morphology-Aware Tokenizer [IMPLEMENTED / UNDER EVALUATION]
 
 The SAGE tokenizer shall incorporate morphological/linguistic signals
 with the objective of avoiding unnecessary fragmentation.
@@ -501,7 +501,7 @@ with the objective of avoiding unnecessary fragmentation.
 The tokenizer should preserve useful linguistic structure rather than
 optimizing solely for token count.
 
-## FR-05 --- Tokenizer Output
+## FR-05 --- Tokenizer Output [IMPLEMENTED]
 
 For each input, the system should be able to expose:
 
@@ -522,7 +522,7 @@ Additional tokenizer metadata may include:
 -   fertility,
 -   compression/efficiency ratio.
 
-## FR-06 --- Tokenizer Evaluation
+## FR-06 --- Tokenizer Evaluation [IMPLEMENTED / UNDER EVALUATION REPAIR]
 
 The tokenizer experiment shall measure:
 
@@ -540,7 +540,7 @@ The tokenizer experiment shall measure:
 
 # 12. Safety Layer Requirements
 
-## FR-07 --- Context-Aware Safety Detection
+## FR-07 --- Context-Aware Safety Detection [IMPLEMENTED]
 
 The safety layer shall classify intent rather than relying exclusively
 on keyword matching.
@@ -558,7 +558,7 @@ Possible output:
 The exact risk taxonomy is implementation-dependent and should be
 finalized before evaluation.
 
-## FR-08 --- Input Variation Coverage
+## FR-08 --- Input Variation Coverage [IMPLEMENTED]
 
 The safety evaluation shall include:
 
@@ -568,12 +568,12 @@ The safety evaluation shall include:
 -   spelling variation,
 -   transliteration variation.
 
-## FR-09 --- Benign Sensitive Contexts
+## FR-09 --- Benign Sensitive Contexts [IMPLEMENTED]
 
 The safety dataset shall include benign examples containing sensitive
 terms so that keyword filtering is not artificially rewarded.
 
-## FR-10 --- Safety Baselines
+## FR-10 --- Safety Baselines [IMPLEMENTED]
 
 Compare:
 
@@ -581,7 +581,7 @@ Compare:
 2.  Multilingual safety classifier.
 3.  Proposed representation-aware/context-aware SAGE safety layer.
 
-## FR-11 --- Safety Decision
+## FR-11 --- Safety Decision [IMPLEMENTED]
 
 The system should not automatically treat every uncertain case as unsafe
 during research evaluation.
@@ -598,7 +598,7 @@ This enables measurement of false positives and false negatives.
 
 # 13. Retrieval-Augmented Generation Requirements
 
-## FR-12 --- Curated Evidence Corpus
+## FR-12 --- Curated Evidence Corpus [STAGE B INGESTED / PARTIALLY IMPLEMENTED]
 
 The system shall use a curated authoritative corpus for the RAG
 knowledge base.
@@ -611,10 +611,14 @@ The source selection should consider:
 -   language coverage,
 -   freshness where applicable.
 
-## FR-13 --- Evidence Retrieval
+## FR-13 --- Evidence Retrieval [IMPLEMENTED - BM25 + CODEMIX + SAGE]
 
 Given a safe query, the retriever shall return relevant evidence
 passages.
+
+Implemented in `src/sage_indic/rag/` and wired through the Phase 2G query service with
+BM25, `CodeMixedQueryNormalizer`, and the frozen SAGE tokenizer. Dense and hybrid RRF
+retrievers are also available and were evaluated in Phase 2D (`EXP-2D-03`–`EXP-2D-07`).
 
 Expected retrieval object:
 
@@ -633,7 +637,7 @@ Expected retrieval object:
 }
 ```
 
-## FR-14 --- Retrieval Evaluation
+## FR-14 --- Retrieval Evaluation [IMPLEMENTED - 8 CONDITIONS EVALUATED]
 
 Retrieval should be evaluated independently where appropriate.
 
@@ -645,37 +649,53 @@ The project proposal identifies:
 
 as strategies for improving weak retrieval.
 
-------------------------------------------------------------------------
+Phase 2D evaluated eight controlled conditions on a 42-query / 30-chunk pilot benchmark
+with code-mix-aware BM25 reaching 100% Recall@5 on both dev and eval splits (see
+`EXP-2D-02`–`EXP-2D-07` and `progress.md` Section 5.3).
 
 # 14. Generation Requirements
 
-## FR-15 --- LLM / SLM Generation
+## FR-15 --- LLM / SLM Generation [IMPLEMENTED - PROVIDER-INDEPENDENT ADAPTER]
 
-The system shall use an existing multilingual LLM/SLM for
-application-level generation.
-
+The system shall use an existing multilingual LLM/SLM for application-level generation.
 Training a large LLM from scratch is outside scope.
 
-## FR-16 --- Draft Answer
+Implemented in `src/sage_indic/generation/` as a provider-independent adapter (`GenerationProvider` ABC) with:
+- `MockGenerationProvider`: Deterministic offline provider for all unit tests.
+- `ExternalAPIProvider`: OpenAI-compatible API provider with environment-variable-only credentials.
+- `GenerationAdapter`: Orchestrates prompt composition, retry policy (configurable `max_retries`, `retry_backoff_factor`), citation validation, and candidate claim extraction.
+- `GenerationConfig`: Fully externalized model/provider configuration (model name, temperature, timeout, retries, API endpoint, credential env var).
 
-The generation stage shall receive:
+## FR-16 --- Draft Answer [IMPLEMENTED - STRUCTURED DRAFT WITH PROVENANCE]
 
--   original user query,
--   relevant retrieved evidence,
--   relevant system instructions,
--   safety decision/context where appropriate.
+The generation stage receives:
+- Original user query and `LanguageCategory` (Native Telugu, Romanized Telugu, Code-Mixed).
+- Bounded retrieved evidence passages, each with `passage_id`, `document_id`, `content_hash`, `source_url`, `char_start`, `char_end`.
+- System instructions (in `PromptComposer`).
 
-The output is a draft answer that proceeds to factuality verification.
+The output is a `DraftAnswer` containing:
+- `answer_text`: Generated text grounded in evidence.
+- `candidate_claims`: Sentence-boundary-extracted `AtomicClaim` list for downstream verification.
+- `citations`: Validated passage IDs cited in the answer.
+- `invalid_citations`: Hallucinated passage IDs not in the supplied evidence set.
+- `is_abstention` + `abstention_reason`: Explicit abstention for unanswerable queries.
+- `is_verified = False`: **Invariant — the adapter never marks its own response as verified.**
+
+Prompts separate trusted system instructions from untrusted evidence data using `[EVIDENCE_PASSAGE id="..."]...[/EVIDENCE_PASSAGE]` envelopes with explicit passive-data warnings.
 
 ------------------------------------------------------------------------
 
 # 15. Claim Extraction Requirements
 
-## FR-17 --- Atomic Claim Extraction
+## FR-17 --- Atomic Claim Extraction [IMPLEMENTED - HEURISTIC SENTENCE BOUNDARY]
 
-The system shall split the draft answer into factual/atomic claims.
+The system shall split the draft answer into factual/atomic claims for independent verification.
+Implemented in `GenerationAdapter._extract_candidate_claims()` via sentence boundary heuristics (`[.!?।]+`).
+Each sentence becomes an `AtomicClaim` with `claim_id`, `claim_text`, `language`, `modality`, and `extractor` metadata.
 
-Example conceptual output:
+**Documented Limitation:** Sentence-boundary decomposition cannot guarantee atomic decomposition correctness for agglutinated Telugu morphological constructions. Claim extraction at this stage is a heuristic preprocessing step, not a semantic decomposition guarantee.
+
+Example output:
 
 ``` json
 {
@@ -699,34 +719,44 @@ entire answer as a single factual unit.
 
 # 16. Evidence Verification Requirements
 
-## FR-18 --- Claim-Level Verification
+## FR-18 --- Claim-Level Verification [IMPLEMENTED - PHASE 2F RELATION-AWARE]
 
-Each extracted claim shall be compared against retrieved evidence.
+Each extracted atomic claim shall be compared against retrieved evidence using directional entailment and contradiction verification.
+Implemented in `src/sage_indic/verification/` via:
+- `LinguisticClaimVerifier`: Frozen weak baseline inspecting numerical alignment, polarity, transliteration, and multi-passage consistency.
+- `RelationAwareClaimVerifier`: Relation-aware verifier decomposing claims into typed `AtomicProposition` structures, performing relation category matching, enforcing conservative compound-claim policies (never forcing partial support into `SUPPORTED`), and isolating untrusted prompt injections.
 
 Expected statuses:
 
 ``` text
 SUPPORTED
-UNSUPPORTED
-UNCERTAIN
+CONTRADICTED
+INSUFFICIENT_EVIDENCE
+CONFLICTING_EVIDENCE
 ```
 
-## FR-19 --- Evidence Association
+## FR-19 --- Evidence Association [IMPLEMENTED - FOUNDATION]
 
-Where possible, every supported claim should have an evidence reference.
+Where possible, every supported claim preserves a cryptographic reference to the substantiating evidence passage (`EvidencePassage`, parent document ID, chunk ID, SHA-256 `ContentHash`, source URL, and character offsets). Conflicting passages are explicitly linked in `VerificationResult.conflicting_passages`.
 
-Conceptual representation:
+Concrete representation:
 
 ``` json
 {
   "claim_id": "C1",
-  "status": "SUPPORTED",
-  "evidence_ids": ["E2", "E4"],
-  "confidence": 0.0
+  "outcome": "SUPPORTED",
+  "confidence": 0.95,
+  "evidence_passage": {
+    "passage_id": "TE_DOC_001#c0000",
+    "document_id": "TE_DOC_001",
+    "content_hash": {"algorithm": "sha256", "digest": "..."}
+  },
+  "explanation": "Direct factual alignment: Numbers {1591} verified in evidence.",
+  "is_untrusted_evidence_quarantined": true
 }
 ```
 
-## FR-20 --- Unsupported Claims
+## FR-20 --- Unsupported Claims [IMPLEMENTED - PHASE 2G]
 
 The response composer shall be able to:
 
@@ -736,18 +766,38 @@ The response composer shall be able to:
 -   or otherwise prevent them from being presented as confidently
     supported facts.
 
-The exact policy shall be determined experimentally.
+Implemented policy in `src/sage_indic/composition/composer.py`:
 
-## FR-21 --- Human Validation
+-   Only claims whose verification outcome is `SUPPORTED` are used to build the
+    deterministic answer.
+-   `CONTRADICTED`, `INSUFFICIENT_EVIDENCE`, and `CONFLICTING_EVIDENCE` claims are not
+    presented as facts; the response carries claim-level caveats and the overall status
+    becomes `PARTIALLY_ANSWERED` or `ABSTAINED`.
+-   An optional LLM draft is rejected unless every extracted claim is `SUPPORTED` and no
+    invalid citation IDs were produced. The deterministic extractive answer is shown instead.
+-   If no selected evidence sentence can be verified, the response abstains rather than
+    presenting the sentence.
 
-A sample of verifier outputs shall be manually validated to estimate
-verifier reliability.
+The policy is deterministic and inspectable. It is an application policy, not a
+calibrated entailment guarantee.
+
+## FR-21 --- Human Validation & Diagnostic Benchmarking [VALIDATED - PHASE 2F COMPARISON]
+
+A diagnostic verification benchmark was implemented across topic-isolated splits (24 dev items, 24 eval items) in `data/processed/verification/`.
+Empirical evaluation in `EXP-2F-01` established:
+- Overall Accuracy: Baseline 70.83% $\rightarrow$ Relation-Aware **75.00%** on held-out eval (+4.17%)
+- Macro-F1: Baseline 0.7419 $\rightarrow$ Relation-Aware **0.7750** (+0.0331)
+- False `SUPPORTED` Rate: Baseline 11.76% (2/17) $\rightarrow$ Relation-Aware **5.88%** (1/17) (50% relative reduction)
+- Genuinely Supported Recall: Maintained at **57.14%** (4/7) with strictly **0.00% regression**
+- Partial Evidence Accuracy: Baseline 50.0% $\rightarrow$ Relation-Aware **100.0%** (2/2)
+- Defense-in-depth: Adversarial prompt injections neutralized by deterministic parsing and sanitization.
+- Identified Residual Limitation: Coarse relational categories (e.g. *discovered* vs *described*) still require fine-grained argument binding or calibrated NLI.
 
 ------------------------------------------------------------------------
 
 # 17. Response Composer Requirements
 
-## FR-22 --- Final Answer Composition
+## FR-22 --- Final Answer Composition [IMPLEMENTED - PHASE 2G DEMO PROTOTYPE]
 
 The final response shall combine:
 
@@ -756,32 +806,75 @@ The final response shall combine:
 -   factuality status,
 -   appropriate caveats.
 
-Conceptual response:
+Implemented by `SAGEQueryService` + `ResponseComposer` and exposed through
+`POST /api/query`. The actual response object is:
 
 ``` json
 {
-  "answer": "...",
-  "evidence": [
+  "request_id": "REQ_...",
+  "original_query": "...",
+  "detected_modality": "TELUGU_NATIVE",
+  "detected_modality_confidence": 0.98,
+  "normalized_query": "...",
+  "answer_text": "...",
+  "answer_status": "ANSWERED",
+  "answer_claims": [
     {
-      "id": "E1",
-      "source": "...",
-      "title": "..."
-    }
-  ],
-  "claims": [
-    {
+      "claim_id": "CLM_01",
       "text": "...",
-      "status": "SUPPORTED"
+      "verification_status": "SUPPORTED",
+      "evidence_ids": ["TE_DOC_001#c0001"],
+      "citation_ids": ["C1"],
+      "caveat": null
     }
   ],
-  "caveats": []
+  "citations": [
+    {
+      "citation_id": "C1",
+      "evidence_id": "TE_DOC_001#c0001",
+      "document_id": "TE_DOC_001",
+      "chunk_id": "TE_DOC_001#c0001",
+      "title": "...",
+      "source_url": "...",
+      "supports_claim": true
+    }
+  ],
+  "retrieved_evidence": [],
+  "verification_summary": {},
+  "abstention_reason": null,
+  "generation_metadata": {
+    "requested_mode": "deterministic",
+    "used_mode": "deterministic",
+    "fallback_used": false
+  },
+  "query_analysis": {},
+  "safety": {},
+  "warnings": [],
+  "latency_metadata": {}
 }
 ```
 
-## FR-23 --- Evidence Transparency
+`answer_status` is one of `ANSWERED`, `PARTIALLY_ANSWERED`, `ABSTAINED`, or `BLOCKED`.
+`generation_metadata.used_mode` is one of `deterministic`, `llm`, or `llm_fallback`.
+Citation IDs are assigned only from retrieved passages; model-authored citation IDs are
+never trusted.
+
+## FR-23 --- Evidence Transparency [IMPLEMENTED - PHASE 2G UI]
 
 The UI should make it possible for the evaluator/user to understand
 which evidence supports a claim.
+
+Implemented in `frontend/`:
+
+-   The answer shows programmatic citation markers (`C1`, `C2`, …).
+-   Each citation lists the passage ID, document title, publisher, license, source URL,
+    quoted evidence span, and whether the verifier marked it as supporting the claim.
+-   A verification view shows claim text, claim-level outcome, confidence, evidence IDs,
+    and caveats.
+-   A status view reports corpus size, retriever, safety mode (including lexical-only
+    fallback), and optional LLM availability.
+-   Citation-ID validity is presented separately from claim support; an existing ID is
+    not treated as proof that the passage supports the claim.
 
 ------------------------------------------------------------------------
 
@@ -2051,7 +2144,74 @@ These are result templates, not target values.
 
 ------------------------------------------------------------------------
 
-# 42. Quality Gates
+# 42. Research Evaluation Framework and Audit Reconciliation
+
+To maintain scientific integrity and prevent ungrounded claims, all experimental evaluations in SAGE-Indic must adhere to the audited research framework established in October 2026.
+
+## 42.1 Tokenizer Evaluation and Baselines
+
+### Baseline Comparisons ($V=4000$)
+Empirical comparison of tokenization strategies on Telugu native text must report standard efficiency (tokens/word, characters/token) and morphological alignment. Historical draft results claiming a fertility of 1.3323 and F1 of 0.8876 have been quarantined as mathematically unsupported and ungrounded. The audited, reproducible baseline results on `eval_native.txt` (148 sentences) are:
+
+| Tokenizer Model | Tokens/Word | Chars/Token | Boundary Proxy F1 | Status |
+|:---|:---:|:---:|:---:|:---|
+| **BPE** | 1.642 | 4.896 | 0.5202 | Verified Baseline |
+| **Unigram** | 1.836 | 4.378 | 0.6044 | Verified Baseline |
+| **SAGE (Rule Affix + Unigram)** | 1.903 | 4.225 | 0.6378 | Under Evaluation Repair |
+| **SAGE Ablation (No-Morphology)** | 1.838 | 4.373 | 0.6039 | Verified Ablation |
+
+*Physical Trade-off Analysis:* SAGE's explicit affix detachment splits inflected word forms (e.g., `stem` + `##affix`), which mathematically increases token count and tokens-per-word relative to standard subwords. F1 gains over Unigram (+0.0334) are primarily driven by whitespace pre-tokenization boundary preservation rather than verified subword morpheme discovery.
+
+### Evaluation Repair and Leakage Decontamination
+1. **Reference Ground Truth:** Current reference boundaries derive from Universal Dependencies (`UD_Telugu-MTG`) syntactic word tokens (`FORM`), which do not annotate intra-word morphemes. Detaching affixes is penalized as a false positive against syntactic words. A dedicated gold intra-word morpheme boundary benchmark must be created.
+2. **Data Leakage Decontamination:** Four sentences in `eval_native.txt` overlap with the training corpus due to upstream UD treebank duplication (2.7% split contamination). Future controlled re-evaluation must use a strictly decontaminated split.
+3. **Controlled Scope:** The immediate next tokenizer milestone is evaluation repair and controlled re-evaluation, not ungrounded algorithm redesign.
+
+## 42.2 Retrieval Evaluation Across Scripts (Phase 2D)
+
+### Multi-Script Retrieval Corpus and Queries
+1. **Corpus Foundation:** The knowledge base foundation consists of 10 approved, verified Wikipedia articles segmented into 30 content chunks with SHA-256 provenance tracking.
+2. **Current Implementation Status:** `BM25Retriever`, `MultilingualDenseRetriever`, and `HybridRetriever` are implemented. A 42-query multi-script benchmark with 1,260 qrels and eight controlled conditions was executed (`EXP-2D-02`–`EXP-2D-07`). Code-mix-aware BM25 reached 100% Recall@5 on both dev and eval splits. Results remain pilot-scale (single annotator, 30 chunks).
+3. **Benchmark Suite:** The multi-script query suite contains native, Romanized, and code-mixed queries, including unanswerable controls:
+   - Native Telugu queries against ingested passages.
+   - Romanized Telugu transliterations.
+   - Telugu-English code-mixed queries.
+4. **Metrics Reported:** Deterministic IR metrics:
+   - Mean Reciprocal Rank (MRR@10)
+   - Normalized Discounted Cumulative Gain (nDCG@5, nDCG@10)
+   - Recall@k ($k \in \{1, 3, 5\}$)
+   - Mean Latency per query (ms)
+
+## 42.3 Context-Aware Safety Regression Evaluation
+
+Safety evaluation requires continuous regression testing across five linguistic variations to prevent keyword brittleness:
+1. **Matched Variation Testing:** Every unsafe intent must be evaluated across Native Telugu, Romanized Telugu, Telugu-English code mixing, spelling variants, and transliteration variants.
+2. **Benign Context Defense:** Evaluation suites must include benign sensitive cases (medical contexts, educational discussions, non-violent political terms) to measure False Positive Rate (FPR). Simple keyword filters produce unacceptably high FPR on benign contexts.
+3. **Audited Baseline:** The verified baseline on `eval_safety.jsonl` (76 cases) establishes that context-aware classification significantly outperforms keyword filtering on Romanized and code-mixed evasions while protecting benign contexts.
+
+## 42.4 Evidence-Based Claim Verification (Phase 2F Validated)
+
+Retrieval of relevant passages does not establish output truthfulness. Factuality verification requires:
+1. **Atomic Claim Extraction:** Decomposing generated output into verifiable proposition units. Implemented heuristically via sentence boundaries; Phase 2G additionally uses verbatim evidence sentences for deterministic composition.
+2. **Entailment Verification:** Assessing premise-to-hypothesis support using the four-class outcomes `SUPPORTED`, `CONTRADICTED`, `INSUFFICIENT_EVIDENCE`, `CONFLICTING_EVIDENCE`. Evaluated in `EXP-2F-01`.
+3. **Unsupported Claim Mitigation:** Preventing ungrounded claims from reaching the final response through rejection, qualification, flagging, or suppression. Implemented in the Phase 2G composer; LLM drafts are accepted only when fully supported.
+
+## 42.5 Ablations, Provenance, and Reproducibility
+
+Every research milestone must satisfy:
+1. **Deterministic Experiment Ledger:** All experiments must be logged in `EXPERIMENT_LEDGER.md` with git commit hash, exact configuration, dataset split hashes, raw artifact paths, and reproduction commands.
+2. **Component Ablations:** Proposed modules (e.g., morphological rules in tokenization, context analysis in safety, reranking in retrieval) must be ablated against un-augmented baselines under identical seeds.
+3. **Explicit Limitation Reporting:** Measured failures, proxy mismatches, and data leakage must be acknowledged directly in reports rather than hidden.
+
+## 42.6 ACM Special Issue Positioning (Open Research Decision)
+
+The target publication venue (e.g., ACM Special Issue on Knowledge-Informed / Neuro-Symbolic / Trustworthy Indic NLP) emphasizes principled integration of symbolic knowledge and neural pipelines.
+- *Open Decision:* The exact alignment with knowledge-informed or symbolic reasoning—specifically whether morphological affixes constitute symbolic knowledge priors, or whether external knowledge graphs are required for factuality verification—remains an open research-design decision pending review of the official call for papers.
+- *Constraint:* The project team shall not claim premature compliance with every special-issue requirement until the official call is reviewed and an aligned implementation is empirically demonstrated.
+
+------------------------------------------------------------------------
+
+# 43. Quality Gates
 
 The team should not advance to the next research phase without meeting
 basic quality gates.
@@ -2094,7 +2254,7 @@ basic quality gates.
 
 ------------------------------------------------------------------------
 
-# 43. Limitations to Explicitly Report
+# 44. Limitations to Explicitly Report
 
 The final report should acknowledge:
 
@@ -2115,7 +2275,7 @@ The final report should acknowledge:
 
 ------------------------------------------------------------------------
 
-# 44. Future Extensions
+# 45. Future Extensions
 
 Potential future work includes:
 
@@ -2135,7 +2295,7 @@ implementation scope unless the core Telugu experiments are complete.
 
 ------------------------------------------------------------------------
 
-# 45. Final Research Success Criteria
+# 46. Final Research Success Criteria
 
 The project should not define success as:
 
@@ -2161,7 +2321,7 @@ research framework**, not merely a chatbot demonstration.
 
 ------------------------------------------------------------------------
 
-# 46. One-Sentence Product Definition
+# 47. One-Sentence Product Definition
 
 > **SAGE-Indic is a Telugu-first research pipeline that combines
 > linguistically-aware tokenization, context-aware safety detection,

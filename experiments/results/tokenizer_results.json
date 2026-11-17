@@ -1,0 +1,343 @@
+{
+  "experiment_name": "SAGE-Indic Tokenizer Benchmark",
+  "date": "2026-09-29",
+  "training_corpus": "D:\\Sage-Indic\\data\\processed\\tokenizer\\train_corpus.txt",
+  "configurations": {
+    "BPE_2000": {
+      "vocab_size": 2000,
+      "native_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1386,
+        "total_words": 721,
+        "tokens_per_sentence": 9.493,
+        "tokens_per_word": 1.922,
+        "compression_ratio": 2.426,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "romanized_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1796,
+        "total_words": 721,
+        "tokens_per_sentence": 12.301,
+        "tokens_per_word": 2.491,
+        "compression_ratio": 1.949,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "code_mixed": {
+        "num_sentences": 150,
+        "total_tokens": 6510,
+        "total_words": 1230,
+        "tokens_per_sentence": 43.4,
+        "tokens_per_word": 5.293,
+        "compression_ratio": 1.26,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "morphological_alignment": {
+        "boundary_precision": 0.5068,
+        "boundary_recall": 0.5861,
+        "boundary_f1": 0.5435,
+        "true_positives": 337,
+        "false_positives": 328,
+        "false_negatives": 238
+      },
+      "train_time_sec": 0.273
+    },
+    "Unigram_2000": {
+      "vocab_size": 2000,
+      "native_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1501,
+        "total_words": 721,
+        "tokens_per_sentence": 10.281,
+        "tokens_per_word": 2.082,
+        "compression_ratio": 2.241,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "romanized_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1859,
+        "total_words": 721,
+        "tokens_per_sentence": 12.733,
+        "tokens_per_word": 2.578,
+        "compression_ratio": 1.883,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "code_mixed": {
+        "num_sentences": 150,
+        "total_tokens": 7170,
+        "total_words": 1230,
+        "tokens_per_sentence": 47.8,
+        "tokens_per_word": 5.829,
+        "compression_ratio": 1.144,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "morphological_alignment": {
+        "boundary_precision": 0.509,
+        "boundary_recall": 0.6904,
+        "boundary_f1": 0.586,
+        "true_positives": 397,
+        "false_positives": 383,
+        "false_negatives": 178
+      },
+      "train_time_sec": 1.59
+    },
+    "SAGE_2000": {
+      "vocab_size": 2000,
+      "native_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1535,
+        "total_words": 721,
+        "tokens_per_sentence": 10.514,
+        "tokens_per_word": 2.129,
+        "compression_ratio": 2.191,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "romanized_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1875,
+        "total_words": 721,
+        "tokens_per_sentence": 12.842,
+        "tokens_per_word": 2.601,
+        "compression_ratio": 1.867,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "code_mixed": {
+        "num_sentences": 150,
+        "total_tokens": 6890,
+        "total_words": 1230,
+        "tokens_per_sentence": 45.933,
+        "tokens_per_word": 5.602,
+        "compression_ratio": 1.19,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "morphological_alignment": {
+        "boundary_precision": 0.5098,
+        "boundary_recall": 0.7217,
+        "boundary_f1": 0.5976,
+        "true_positives": 415,
+        "false_positives": 399,
+        "false_negatives": 160
+      },
+      "train_time_sec": 2.059
+    },
+    "SAGE_Ablation_NoMorph_2000": {
+      "vocab_size": 2000,
+      "native_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1504,
+        "total_words": 721,
+        "tokens_per_sentence": 10.301,
+        "tokens_per_word": 2.086,
+        "compression_ratio": 2.236,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "romanized_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1869,
+        "total_words": 721,
+        "tokens_per_sentence": 12.801,
+        "tokens_per_word": 2.592,
+        "compression_ratio": 1.873,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "code_mixed": {
+        "num_sentences": 150,
+        "total_tokens": 7170,
+        "total_words": 1230,
+        "tokens_per_sentence": 47.8,
+        "tokens_per_word": 5.829,
+        "compression_ratio": 1.144,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "morphological_alignment": {
+        "boundary_precision": 0.5083,
+        "boundary_recall": 0.6922,
+        "boundary_f1": 0.5862,
+        "true_positives": 398,
+        "false_positives": 385,
+        "false_negatives": 177
+      },
+      "train_time_sec": 7.093
+    },
+    "BPE_4000": {
+      "vocab_size": 4000,
+      "native_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1184,
+        "total_words": 721,
+        "tokens_per_sentence": 8.11,
+        "tokens_per_word": 1.642,
+        "compression_ratio": 2.84,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "romanized_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1471,
+        "total_words": 721,
+        "tokens_per_sentence": 10.075,
+        "tokens_per_word": 2.04,
+        "compression_ratio": 2.38,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "code_mixed": {
+        "num_sentences": 150,
+        "total_tokens": 5670,
+        "total_words": 1230,
+        "tokens_per_sentence": 37.8,
+        "tokens_per_word": 4.61,
+        "compression_ratio": 1.446,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "morphological_alignment": {
+        "boundary_precision": 0.5832,
+        "boundary_recall": 0.4696,
+        "boundary_f1": 0.5202,
+        "true_positives": 270,
+        "false_positives": 193,
+        "false_negatives": 305
+      },
+      "train_time_sec": 0.725
+    },
+    "Unigram_4000": {
+      "vocab_size": 4000,
+      "native_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1324,
+        "total_words": 721,
+        "tokens_per_sentence": 9.068,
+        "tokens_per_word": 1.836,
+        "compression_ratio": 2.54,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "romanized_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1657,
+        "total_words": 721,
+        "tokens_per_sentence": 11.349,
+        "tokens_per_word": 2.298,
+        "compression_ratio": 2.113,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "code_mixed": {
+        "num_sentences": 150,
+        "total_tokens": 6310,
+        "total_words": 1230,
+        "tokens_per_sentence": 42.067,
+        "tokens_per_word": 5.13,
+        "compression_ratio": 1.3,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "morphological_alignment": {
+        "boundary_precision": 0.5904,
+        "boundary_recall": 0.6191,
+        "boundary_f1": 0.6044,
+        "true_positives": 356,
+        "false_positives": 247,
+        "false_negatives": 219
+      },
+      "train_time_sec": 4.407
+    },
+    "SAGE_4000": {
+      "vocab_size": 4000,
+      "native_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1372,
+        "total_words": 721,
+        "tokens_per_sentence": 9.397,
+        "tokens_per_word": 1.903,
+        "compression_ratio": 2.451,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "romanized_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1683,
+        "total_words": 721,
+        "tokens_per_sentence": 11.527,
+        "tokens_per_word": 2.334,
+        "compression_ratio": 2.08,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "code_mixed": {
+        "num_sentences": 150,
+        "total_tokens": 6410,
+        "total_words": 1230,
+        "tokens_per_sentence": 42.733,
+        "tokens_per_word": 5.211,
+        "compression_ratio": 1.279,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "morphological_alignment": {
+        "boundary_precision": 0.6006,
+        "boundary_recall": 0.68,
+        "boundary_f1": 0.6378,
+        "true_positives": 391,
+        "false_positives": 260,
+        "false_negatives": 184
+      },
+      "train_time_sec": 3.574
+    },
+    "SAGE_Ablation_NoMorph_4000": {
+      "vocab_size": 4000,
+      "native_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1325,
+        "total_words": 721,
+        "tokens_per_sentence": 9.075,
+        "tokens_per_word": 1.838,
+        "compression_ratio": 2.538,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "romanized_telugu": {
+        "num_sentences": 146,
+        "total_tokens": 1657,
+        "total_words": 721,
+        "tokens_per_sentence": 11.349,
+        "tokens_per_word": 2.298,
+        "compression_ratio": 2.113,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "code_mixed": {
+        "num_sentences": 150,
+        "total_tokens": 6310,
+        "total_words": 1230,
+        "tokens_per_sentence": 42.067,
+        "tokens_per_word": 5.13,
+        "compression_ratio": 1.3,
+        "unk_count": 0,
+        "unk_rate": 0.0
+      },
+      "morphological_alignment": {
+        "boundary_precision": 0.5894,
+        "boundary_recall": 0.6191,
+        "boundary_f1": 0.6039,
+        "true_positives": 356,
+        "false_positives": 248,
+        "false_negatives": 219
+      },
+      "train_time_sec": 3.493
+    }
+  }
+}

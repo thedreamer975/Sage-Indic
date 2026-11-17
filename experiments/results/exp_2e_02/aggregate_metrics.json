@@ -1,0 +1,341 @@
+{
+  "condition_a_sage_indic": {
+    "total_queries": 42,
+    "answerable_queries_count": 30,
+    "unanswerable_queries_count": 12,
+    "retrieval_hits_on_answerable": 27,
+    "retrieval_hit_rate_on_answerable": 0.9,
+    "fact_correct_answers_count": 6,
+    "fact_correct_rate_on_answerable": 0.2,
+    "total_abstentions": 4,
+    "correct_abstentions_count": 4,
+    "correct_abstention_rate": 0.3333,
+    "incorrect_abstentions_count": 0,
+    "incorrect_abstention_rate": 0.0,
+    "citations_total": 2,
+    "citations_valid": 0,
+    "citations_invalid": 2,
+    "citation_validity_rate": 0.0,
+    "citation_hallucination_rate": 1.0,
+    "relation_aware": {
+      "eligibility_distribution": {
+        "ELIGIBLE_GROUNDED": 9,
+        "REQUIRES_CAVEAT": 19,
+        "INELIGIBLE_CONTRADICTED": 10,
+        "ABSTENTION": 4
+      },
+      "total_claims": 43,
+      "supported_claims_count": 10,
+      "supported_claims_rate": 0.2326,
+      "contradicted_claims_count": 10,
+      "insufficient_claims_count": 19
+    },
+    "linguistic_baseline": {
+      "eligibility_distribution": {
+        "ELIGIBLE_GROUNDED": 9,
+        "REQUIRES_CAVEAT": 19,
+        "INELIGIBLE_CONTRADICTED": 10,
+        "ABSTENTION": 4
+      },
+      "total_claims": 43,
+      "supported_claims_count": 10,
+      "supported_claims_rate": 0.2326,
+      "contradicted_claims_count": 10,
+      "insufficient_claims_count": 19
+    },
+    "modality_breakdown": {
+      "native": {
+        "total_queries": 14,
+        "answerable_queries": 10,
+        "unanswerable_queries": 4,
+        "retrieval_hits": 9,
+        "retrieval_hit_rate": 0.9,
+        "fact_correct": 2,
+        "fact_correct_rate": 0.2,
+        "correct_abstentions": 0,
+        "relation_aware_eligible_grounded": 4,
+        "relation_aware_requires_caveat": 7
+      },
+      "romanized": {
+        "total_queries": 14,
+        "answerable_queries": 10,
+        "unanswerable_queries": 4,
+        "retrieval_hits": 9,
+        "retrieval_hit_rate": 0.9,
+        "fact_correct": 2,
+        "fact_correct_rate": 0.2,
+        "correct_abstentions": 1,
+        "relation_aware_eligible_grounded": 3,
+        "relation_aware_requires_caveat": 6
+      },
+      "code_mixed": {
+        "total_queries": 14,
+        "answerable_queries": 10,
+        "unanswerable_queries": 4,
+        "retrieval_hits": 9,
+        "retrieval_hit_rate": 0.9,
+        "fact_correct": 2,
+        "fact_correct_rate": 0.2,
+        "correct_abstentions": 3,
+        "relation_aware_eligible_grounded": 2,
+        "relation_aware_requires_caveat": 6
+      }
+    },
+    "split_breakdown": {
+      "dev": {
+        "total_queries": 18,
+        "answerable_queries": 12,
+        "unanswerable_queries": 6,
+        "retrieval_hits": 9,
+        "retrieval_hit_rate": 0.75,
+        "fact_correct": 3,
+        "fact_correct_rate": 0.25,
+        "correct_abstentions": 1,
+        "relation_aware_eligible_grounded": 5
+      },
+      "eval": {
+        "total_queries": 24,
+        "answerable_queries": 18,
+        "unanswerable_queries": 6,
+        "retrieval_hits": 18,
+        "retrieval_hit_rate": 1.0,
+        "fact_correct": 3,
+        "fact_correct_rate": 0.16666666666666666,
+        "correct_abstentions": 3,
+        "relation_aware_eligible_grounded": 4
+      }
+    },
+    "latency_profile_ms": {
+      "mean_retrieval_ms": 0.29,
+      "mean_generation_ms": 3637.73,
+      "mean_verification_ms": 1.24,
+      "mean_pipeline_total_ms": 3639.26
+    }
+  },
+  "condition_c_lexical_baseline": {
+    "total_queries": 42,
+    "answerable_queries_count": 30,
+    "unanswerable_queries_count": 12,
+    "retrieval_hits_on_answerable": 9,
+    "retrieval_hit_rate_on_answerable": 0.3,
+    "fact_correct_answers_count": 2,
+    "fact_correct_rate_on_answerable": 0.0667,
+    "total_abstentions": 28,
+    "correct_abstentions_count": 8,
+    "correct_abstention_rate": 0.6667,
+    "incorrect_abstentions_count": 20,
+    "incorrect_abstention_rate": 0.6667,
+    "citations_total": 2,
+    "citations_valid": 0,
+    "citations_invalid": 2,
+    "citation_validity_rate": 0.0,
+    "citation_hallucination_rate": 1.0,
+    "relation_aware": {
+      "eligibility_distribution": {
+        "ELIGIBLE_GROUNDED": 4,
+        "REQUIRES_CAVEAT": 7,
+        "INELIGIBLE_CONTRADICTED": 3,
+        "ABSTENTION": 28
+      },
+      "total_claims": 43,
+      "supported_claims_count": 4,
+      "supported_claims_rate": 0.093,
+      "contradicted_claims_count": 3,
+      "insufficient_claims_count": 7
+    },
+    "linguistic_baseline": {
+      "eligibility_distribution": {
+        "ELIGIBLE_GROUNDED": 4,
+        "REQUIRES_CAVEAT": 7,
+        "INELIGIBLE_CONTRADICTED": 3,
+        "ABSTENTION": 28
+      },
+      "total_claims": 43,
+      "supported_claims_count": 4,
+      "supported_claims_rate": 0.093,
+      "contradicted_claims_count": 3,
+      "insufficient_claims_count": 7
+    },
+    "modality_breakdown": {
+      "native": {
+        "total_queries": 14,
+        "answerable_queries": 10,
+        "unanswerable_queries": 4,
+        "retrieval_hits": 9,
+        "retrieval_hit_rate": 0.9,
+        "fact_correct": 2,
+        "fact_correct_rate": 0.2,
+        "correct_abstentions": 0,
+        "relation_aware_eligible_grounded": 4,
+        "relation_aware_requires_caveat": 7
+      },
+      "romanized": {
+        "total_queries": 14,
+        "answerable_queries": 10,
+        "unanswerable_queries": 4,
+        "retrieval_hits": 0,
+        "retrieval_hit_rate": 0.0,
+        "fact_correct": 0,
+        "fact_correct_rate": 0.0,
+        "correct_abstentions": 4,
+        "relation_aware_eligible_grounded": 0,
+        "relation_aware_requires_caveat": 0
+      },
+      "code_mixed": {
+        "total_queries": 14,
+        "answerable_queries": 10,
+        "unanswerable_queries": 4,
+        "retrieval_hits": 0,
+        "retrieval_hit_rate": 0.0,
+        "fact_correct": 0,
+        "fact_correct_rate": 0.0,
+        "correct_abstentions": 4,
+        "relation_aware_eligible_grounded": 0,
+        "relation_aware_requires_caveat": 0
+      }
+    },
+    "split_breakdown": {
+      "dev": {
+        "total_queries": 18,
+        "answerable_queries": 12,
+        "unanswerable_queries": 6,
+        "retrieval_hits": 3,
+        "retrieval_hit_rate": 0.25,
+        "fact_correct": 1,
+        "fact_correct_rate": 0.08333333333333333,
+        "correct_abstentions": 4,
+        "relation_aware_eligible_grounded": 2
+      },
+      "eval": {
+        "total_queries": 24,
+        "answerable_queries": 18,
+        "unanswerable_queries": 6,
+        "retrieval_hits": 6,
+        "retrieval_hit_rate": 0.3333333333333333,
+        "fact_correct": 1,
+        "fact_correct_rate": 0.05555555555555555,
+        "correct_abstentions": 4,
+        "relation_aware_eligible_grounded": 2
+      }
+    },
+    "latency_profile_ms": {
+      "mean_retrieval_ms": 0.13,
+      "mean_generation_ms": 1985.29,
+      "mean_verification_ms": 0.4,
+      "mean_pipeline_total_ms": 1985.83
+    }
+  },
+  "condition_d_no_evidence_ablation": {
+    "total_queries": 42,
+    "answerable_queries_count": 30,
+    "unanswerable_queries_count": 12,
+    "retrieval_hits_on_answerable": 0,
+    "retrieval_hit_rate_on_answerable": 0.0,
+    "fact_correct_answers_count": 2,
+    "fact_correct_rate_on_answerable": 0.0667,
+    "total_abstentions": 42,
+    "correct_abstentions_count": 12,
+    "correct_abstention_rate": 1.0,
+    "incorrect_abstentions_count": 30,
+    "incorrect_abstention_rate": 1.0,
+    "citations_total": 3,
+    "citations_valid": 0,
+    "citations_invalid": 3,
+    "citation_validity_rate": 0.0,
+    "citation_hallucination_rate": 1.0,
+    "relation_aware": {
+      "eligibility_distribution": {
+        "ELIGIBLE_GROUNDED": 0,
+        "REQUIRES_CAVEAT": 0,
+        "INELIGIBLE_CONTRADICTED": 0,
+        "ABSTENTION": 42
+      },
+      "total_claims": 43,
+      "supported_claims_count": 0,
+      "supported_claims_rate": 0.0,
+      "contradicted_claims_count": 0,
+      "insufficient_claims_count": 0
+    },
+    "linguistic_baseline": {
+      "eligibility_distribution": {
+        "ELIGIBLE_GROUNDED": 0,
+        "REQUIRES_CAVEAT": 0,
+        "INELIGIBLE_CONTRADICTED": 0,
+        "ABSTENTION": 42
+      },
+      "total_claims": 43,
+      "supported_claims_count": 0,
+      "supported_claims_rate": 0.0,
+      "contradicted_claims_count": 0,
+      "insufficient_claims_count": 0
+    },
+    "modality_breakdown": {
+      "native": {
+        "total_queries": 14,
+        "answerable_queries": 10,
+        "unanswerable_queries": 4,
+        "retrieval_hits": 0,
+        "retrieval_hit_rate": 0.0,
+        "fact_correct": 2,
+        "fact_correct_rate": 0.2,
+        "correct_abstentions": 4,
+        "relation_aware_eligible_grounded": 0,
+        "relation_aware_requires_caveat": 0
+      },
+      "romanized": {
+        "total_queries": 14,
+        "answerable_queries": 10,
+        "unanswerable_queries": 4,
+        "retrieval_hits": 0,
+        "retrieval_hit_rate": 0.0,
+        "fact_correct": 0,
+        "fact_correct_rate": 0.0,
+        "correct_abstentions": 4,
+        "relation_aware_eligible_grounded": 0,
+        "relation_aware_requires_caveat": 0
+      },
+      "code_mixed": {
+        "total_queries": 14,
+        "answerable_queries": 10,
+        "unanswerable_queries": 4,
+        "retrieval_hits": 0,
+        "retrieval_hit_rate": 0.0,
+        "fact_correct": 0,
+        "fact_correct_rate": 0.0,
+        "correct_abstentions": 4,
+        "relation_aware_eligible_grounded": 0,
+        "relation_aware_requires_caveat": 0
+      }
+    },
+    "split_breakdown": {
+      "dev": {
+        "total_queries": 18,
+        "answerable_queries": 12,
+        "unanswerable_queries": 6,
+        "retrieval_hits": 0,
+        "retrieval_hit_rate": 0.0,
+        "fact_correct": 1,
+        "fact_correct_rate": 0.08333333333333333,
+        "correct_abstentions": 6,
+        "relation_aware_eligible_grounded": 0
+      },
+      "eval": {
+        "total_queries": 24,
+        "answerable_queries": 18,
+        "unanswerable_queries": 6,
+        "retrieval_hits": 0,
+        "retrieval_hit_rate": 0.0,
+        "fact_correct": 1,
+        "fact_correct_rate": 0.05555555555555555,
+        "correct_abstentions": 6,
+        "relation_aware_eligible_grounded": 0
+      }
+    },
+    "latency_profile_ms": {
+      "mean_retrieval_ms": 0.0,
+      "mean_generation_ms": 3348.87,
+      "mean_verification_ms": 0.01,
+      "mean_pipeline_total_ms": 3348.88
+    }
+  }
+}

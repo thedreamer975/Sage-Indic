@@ -1,0 +1,1107 @@
+{
+  "experiment_id": "EXP-2D-BM25_BASELINE-20261015_185623",
+  "run_timestamp_utc": "2026-10-15T18:56:23.639073+00:00",
+  "condition": "bm25_baseline",
+  "corpus_version": "2026.10-phase2d",
+  "corpus_chunks_file": "D:\\Sage-Indic\\data\\processed\\rag\\phase2d_chunks.jsonl",
+  "corpus_chunks_sha256": "8a51ae3069b3f7336947d3ed972276fbd7378133d269aec2e8b0d7493797b543",
+  "corpus_size_chunks": 30,
+  "top_k": 10,
+  "limitations": [
+    "30-chunk corpus is small pilot benchmark; high variance in subgroup confidence intervals.",
+    "Relevance judgments are single-annotator derived with annotation_status=PENDING.",
+    "Unanswerable query ranking metrics are computed for diagnostic completeness but NOT interpreted as answerability classification.",
+    "BM25 cross-script matching relies on normalizer/transliterator mapping quality."
+  ],
+  "splits": [
+    {
+      "split": "dev",
+      "condition": "bm25_baseline",
+      "condition_metadata": {
+        "condition": "bm25_baseline",
+        "description": "Sparse lexical BM25 baseline with Unicode NFC whitespace tokenization"
+      },
+      "queries_file": "D:\\Sage-Indic\\data\\processed\\rag\\phase2d_eval_queries_dev.jsonl",
+      "queries_sha256": "aaf983b524147116b7289c681745d2d359b9299842524183e70b73f807998965",
+      "qrels_file": "D:\\Sage-Indic\\data\\processed\\rag\\phase2d_qrels_dev.jsonl",
+      "qrels_sha256": "e217528df1266bfe43b575c400c7f9633fdcb344d12f97c2b4be2547f0c4d6fd",
+      "corpus_chunks_sha256": "8a51ae3069b3f7336947d3ed972276fbd7378133d269aec2e8b0d7493797b543",
+      "n_queries": 18,
+      "n_qrels": 540,
+      "top_k": 10,
+      "index_time_seconds": 0.0019,
+      "metrics": {
+        "overall": {
+          "n_queries": 18,
+          "recall_at_1": 0.3333333333333333,
+          "recall_at_5": 0.3333333333333333,
+          "recall_at_10": 0.3333333333333333,
+          "mrr_at_10": 0.3333333333333333,
+          "ndcg_at_10": 0.3333333333333333,
+          "mean_latency_ms": 0.05333333333333333
+        },
+        "answerable": {
+          "n_queries": 12,
+          "recall_at_1": 0.3333333333333333,
+          "recall_at_5": 0.3333333333333333,
+          "recall_at_10": 0.3333333333333333,
+          "mrr_at_10": 0.3333333333333333,
+          "ndcg_at_10": 0.3333333333333333,
+          "mean_latency_ms": 0.05416666666666667
+        },
+        "unanswerable": {
+          "n_queries": 6,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "mean_latency_ms": 0.051666666666666666
+        },
+        "by_modality": {
+          "native": {
+            "n_queries": 6,
+            "recall_at_1": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_10": 1.0,
+            "mean_latency_ms": 0.07166666666666667
+          },
+          "romanized": {
+            "n_queries": 6,
+            "recall_at_1": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr_at_10": 0.0,
+            "ndcg_at_10": 0.0,
+            "mean_latency_ms": 0.04833333333333334
+          },
+          "code_mixed": {
+            "n_queries": 6,
+            "recall_at_1": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr_at_10": 0.0,
+            "ndcg_at_10": 0.0,
+            "mean_latency_ms": 0.04
+          }
+        }
+      },
+      "per_query": [
+        {
+          "query_id": "Q_DEV_001_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 0.13,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_001#c0002",
+              "document_id": "TE_DOC_001",
+              "score": 3.620655
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0000",
+              "document_id": "TE_DOC_002",
+              "score": 2.843558
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0002",
+              "document_id": "TE_DOC_005",
+              "score": 2.714998
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 2.48986
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0001",
+              "document_id": "TE_DOC_009",
+              "score": 1.405406
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 1.119986
+            },
+            {
+              "chunk_id": "TE_DOC_006#c0000",
+              "document_id": "TE_DOC_006",
+              "score": 1.069351
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0002",
+              "document_id": "TE_DOC_010",
+              "score": 1.069351
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 1.023096
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 1.001437
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_001_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.05,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_DEV_001_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_DEV_002_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 0.06,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_004#c0001",
+              "document_id": "TE_DOC_004",
+              "score": 9.042301
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0000",
+              "document_id": "TE_DOC_004",
+              "score": 6.116883
+            },
+            {
+              "chunk_id": "TE_DOC_006#c0002",
+              "document_id": "TE_DOC_006",
+              "score": 2.299201
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_002_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_DEV_002_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_DEV_003_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 0.06,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 7.364097
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0002",
+              "document_id": "TE_DOC_007",
+              "score": 5.868417
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 5.429995
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 3.420498
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_003_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_DEV_003_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_DEV_004_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 0.07,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_010#c0002",
+              "document_id": "TE_DOC_010",
+              "score": 10.560602
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 2.843558
+            },
+            {
+              "chunk_id": "TE_DOC_006#c0002",
+              "document_id": "TE_DOC_006",
+              "score": 2.299201
+            },
+            {
+              "chunk_id": "TE_DOC_006#c0000",
+              "document_id": "TE_DOC_006",
+              "score": 1.864752
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0000",
+              "document_id": "TE_DOC_008",
+              "score": 1.784092
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 1.746323
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 1.71012
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_004_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_DEV_004_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_DEV_005_NAT",
+          "modality": "native",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 0.05,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_003#c0001",
+              "document_id": "TE_DOC_003",
+              "score": 3.046099
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0000",
+              "document_id": "TE_DOC_002",
+              "score": 2.463536
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0001",
+              "document_id": "TE_DOC_005",
+              "score": 1.954513
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_005_ROM",
+          "modality": "romanized",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 0.08,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_DEV_005_MIX",
+          "modality": "code_mixed",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_DEV_006_NAT",
+          "modality": "native",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 0.06,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_007#c0002",
+              "document_id": "TE_DOC_007",
+              "score": 2.934208
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_006_ROM",
+          "modality": "romanized",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_DEV_006_MIX",
+          "modality": "code_mixed",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        }
+      ]
+    },
+    {
+      "split": "eval",
+      "condition": "bm25_baseline",
+      "condition_metadata": {
+        "condition": "bm25_baseline",
+        "description": "Sparse lexical BM25 baseline with Unicode NFC whitespace tokenization"
+      },
+      "queries_file": "D:\\Sage-Indic\\data\\processed\\rag\\phase2d_eval_queries_eval.jsonl",
+      "queries_sha256": "da26df140621b82b12567bdc29040768cb8241d258689f534c8ae4ce130c0609",
+      "qrels_file": "D:\\Sage-Indic\\data\\processed\\rag\\phase2d_qrels_eval.jsonl",
+      "qrels_sha256": "48b7c2c8bac7c5c5be1a71af191f7a585ea862dd584d46a130b7a566c90d860c",
+      "corpus_chunks_sha256": "8a51ae3069b3f7336947d3ed972276fbd7378133d269aec2e8b0d7493797b543",
+      "n_queries": 24,
+      "n_qrels": 720,
+      "top_k": 10,
+      "index_time_seconds": 0.0018,
+      "metrics": {
+        "overall": {
+          "n_queries": 24,
+          "recall_at_1": 0.3333333333333333,
+          "recall_at_5": 0.3333333333333333,
+          "recall_at_10": 0.3333333333333333,
+          "mrr_at_10": 0.3333333333333333,
+          "ndcg_at_10": 0.3333333333333333,
+          "mean_latency_ms": 0.05583333333333334
+        },
+        "answerable": {
+          "n_queries": 18,
+          "recall_at_1": 0.3333333333333333,
+          "recall_at_5": 0.3333333333333333,
+          "recall_at_10": 0.3333333333333333,
+          "mrr_at_10": 0.3333333333333333,
+          "ndcg_at_10": 0.3333333333333333,
+          "mean_latency_ms": 0.06055555555555556
+        },
+        "unanswerable": {
+          "n_queries": 6,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "mean_latency_ms": 0.041666666666666664
+        },
+        "by_modality": {
+          "native": {
+            "n_queries": 8,
+            "recall_at_1": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_10": 1.0,
+            "mean_latency_ms": 0.07625
+          },
+          "romanized": {
+            "n_queries": 8,
+            "recall_at_1": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr_at_10": 0.0,
+            "ndcg_at_10": 0.0,
+            "mean_latency_ms": 0.05
+          },
+          "code_mixed": {
+            "n_queries": 8,
+            "recall_at_1": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr_at_10": 0.0,
+            "ndcg_at_10": 0.0,
+            "mean_latency_ms": 0.04125
+          }
+        }
+      },
+      "per_query": [
+        {
+          "query_id": "Q_EVAL_001_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 0.11,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_002#c0001",
+              "document_id": "TE_DOC_002",
+              "score": 20.113142
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0000",
+              "document_id": "TE_DOC_002",
+              "score": 5.534135
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 2.843558
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0001",
+              "document_id": "TE_DOC_003",
+              "score": 2.414898
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 2.102379
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 1.746323
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_001_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.05,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_001_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_002_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 0.08,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 11.636226
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 6.689839
+            },
+            {
+              "chunk_id": "TE_DOC_006#c0000",
+              "document_id": "TE_DOC_006",
+              "score": 4.57975
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0002",
+              "document_id": "TE_DOC_010",
+              "score": 3.729504
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0000",
+              "document_id": "TE_DOC_004",
+              "score": 2.542569
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 2.102379
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 1.953052
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0000",
+              "document_id": "TE_DOC_008",
+              "score": 1.784092
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0001",
+              "document_id": "TE_DOC_005",
+              "score": 1.549506
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_002_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.05,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_002_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_003_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 0.08,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0002",
+              "document_id": "TE_DOC_005",
+              "score": 15.227558
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0002",
+              "document_id": "TE_DOC_008",
+              "score": 4.68815
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 2.843558
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 2.585987
+            },
+            {
+              "chunk_id": "TE_DOC_006#c0002",
+              "document_id": "TE_DOC_006",
+              "score": 2.299201
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0001",
+              "document_id": "TE_DOC_005",
+              "score": 1.954513
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 1.786706
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_003_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.08,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_003_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.05,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_004_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 0.08,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_006#c0001",
+              "document_id": "TE_DOC_006",
+              "score": 19.088635
+            },
+            {
+              "chunk_id": "TE_DOC_006#c0000",
+              "document_id": "TE_DOC_006",
+              "score": 2.352157
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0001",
+              "document_id": "TE_DOC_004",
+              "score": 2.300161
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0002",
+              "document_id": "TE_DOC_008",
+              "score": 2.030806
+            },
+            {
+              "chunk_id": "TE_DOC_006#c0002",
+              "document_id": "TE_DOC_006",
+              "score": 1.991929
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_004_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.05,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_004_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_005_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 0.08,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_008#c0002",
+              "document_id": "TE_DOC_008",
+              "score": 21.155518
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0000",
+              "document_id": "TE_DOC_008",
+              "score": 10.570121
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0002",
+              "document_id": "TE_DOC_005",
+              "score": 5.429995
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 2.113297
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_005_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.05,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_005_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_006_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 0.09,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 6.116883
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 5.887705
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0002",
+              "document_id": "TE_DOC_005",
+              "score": 5.618012
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 2.934208
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0001",
+              "document_id": "TE_DOC_009",
+              "score": 2.157108
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 2.011202
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0001",
+              "document_id": "TE_DOC_005",
+              "score": 1.954513
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 1.751083
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0000",
+              "document_id": "TE_DOC_002",
+              "score": 1.602754
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 1.530292
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_006_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_006_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_007_NAT",
+          "modality": "native",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 0.05,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 4.847973
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0000",
+              "document_id": "TE_DOC_004",
+              "score": 4.745343
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 3.590516
+            },
+            {
+              "chunk_id": "TE_DOC_006#c0000",
+              "document_id": "TE_DOC_006",
+              "score": 2.352157
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_007_ROM",
+          "modality": "romanized",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_007_MIX",
+          "modality": "code_mixed",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_008_NAT",
+          "modality": "native",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 0.04,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_002#c0000",
+              "document_id": "TE_DOC_002",
+              "score": 2.843558
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0002",
+              "document_id": "TE_DOC_005",
+              "score": 2.714998
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_008_ROM",
+          "modality": "romanized",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        },
+        {
+          "query_id": "Q_EVAL_008_MIX",
+          "modality": "code_mixed",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 0.04,
+          "top_retrieved": []
+        }
+      ]
+    }
+  ]
+}

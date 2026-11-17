@@ -1,0 +1,56 @@
+{
+  "paired_verifier_comparison_A_vs_B": {
+    "total_queries": 42,
+    "relation_aware": {
+      "eligibility_distribution": {
+        "ELIGIBLE_GROUNDED": 9,
+        "REQUIRES_CAVEAT": 19,
+        "INELIGIBLE_CONTRADICTED": 10,
+        "ABSTENTION": 4
+      },
+      "total_claims": 43,
+      "supported_claims_count": 10,
+      "supported_claims_rate": 0.2326,
+      "contradicted_claims_count": 10,
+      "insufficient_claims_count": 19
+    },
+    "linguistic_baseline": {
+      "eligibility_distribution": {
+        "ELIGIBLE_GROUNDED": 9,
+        "REQUIRES_CAVEAT": 19,
+        "INELIGIBLE_CONTRADICTED": 10,
+        "ABSTENTION": 4
+      },
+      "total_claims": 43,
+      "supported_claims_count": 10,
+      "supported_claims_rate": 0.2326,
+      "contradicted_claims_count": 10,
+      "insufficient_claims_count": 19
+    },
+    "eligibility_shift": {
+      "grounded_to_caveat": 0,
+      "caveat_to_grounded": 0,
+      "identical_decisions": 42
+    }
+  },
+  "retrieval_comparison_A_vs_C": {
+    "condition_a_codemix_recall_hit_rate": 0.9,
+    "condition_c_baseline_recall_hit_rate": 0.3,
+    "condition_a_fact_correct_rate": 0.2,
+    "condition_c_fact_correct_rate": 0.0667,
+    "modality_retrieval_hits": {
+      "native": {
+        "condition_a": 9,
+        "condition_c": 9
+      },
+      "romanized": {
+        "condition_a": 9,
+        "condition_c": 0
+      },
+      "code_mixed": {
+        "condition_a": 9,
+        "condition_c": 0
+      }
+    }
+  }
+}

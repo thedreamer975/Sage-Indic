@@ -1,0 +1,2862 @@
+{
+  "experiment_id": "EXP-2D-DENSE_MULTILINGUAL-20261015_185623",
+  "run_timestamp_utc": "2026-10-15T18:56:23.721630+00:00",
+  "condition": "dense_multilingual",
+  "corpus_version": "2026.10-phase2d",
+  "corpus_chunks_file": "D:\\Sage-Indic\\data\\processed\\rag\\phase2d_chunks.jsonl",
+  "corpus_chunks_sha256": "8a51ae3069b3f7336947d3ed972276fbd7378133d269aec2e8b0d7493797b543",
+  "corpus_size_chunks": 30,
+  "top_k": 10,
+  "limitations": [
+    "30-chunk corpus is small pilot benchmark; high variance in subgroup confidence intervals.",
+    "Relevance judgments are single-annotator derived with annotation_status=PENDING.",
+    "Unanswerable query ranking metrics are computed for diagnostic completeness but NOT interpreted as answerability classification.",
+    "BM25 cross-script matching relies on normalizer/transliterator mapping quality."
+  ],
+  "splits": [
+    {
+      "split": "dev",
+      "condition": "dense_multilingual",
+      "condition_metadata": {
+        "condition": "dense_multilingual",
+        "description": "Dense semantic retrieval with paraphrase-multilingual-MiniLM-L12-v2",
+        "model_license": "Apache-2.0"
+      },
+      "queries_file": "D:\\Sage-Indic\\data\\processed\\rag\\phase2d_eval_queries_dev.jsonl",
+      "queries_sha256": "aaf983b524147116b7289c681745d2d359b9299842524183e70b73f807998965",
+      "qrels_file": "D:\\Sage-Indic\\data\\processed\\rag\\phase2d_qrels_dev.jsonl",
+      "qrels_sha256": "e217528df1266bfe43b575c400c7f9633fdcb344d12f97c2b4be2547f0c4d6fd",
+      "corpus_chunks_sha256": "8a51ae3069b3f7336947d3ed972276fbd7378133d269aec2e8b0d7493797b543",
+      "n_queries": 18,
+      "n_qrels": 540,
+      "top_k": 10,
+      "index_time_seconds": 4.181,
+      "metrics": {
+        "overall": {
+          "n_queries": 18,
+          "recall_at_1": 0.16666666666666666,
+          "recall_at_5": 0.9166666666666666,
+          "recall_at_10": 0.9166666666666666,
+          "mrr_at_10": 0.4152777777777778,
+          "ndcg_at_10": 0.5382103791169696,
+          "mean_latency_ms": 23.00611111111111
+        },
+        "answerable": {
+          "n_queries": 12,
+          "recall_at_1": 0.16666666666666666,
+          "recall_at_5": 0.9166666666666666,
+          "recall_at_10": 0.9166666666666666,
+          "mrr_at_10": 0.4152777777777778,
+          "ndcg_at_10": 0.5382103791169696,
+          "mean_latency_ms": 24.175
+        },
+        "unanswerable": {
+          "n_queries": 6,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "mean_latency_ms": 20.668333333333333
+        },
+        "by_modality": {
+          "native": {
+            "n_queries": 6,
+            "recall_at_1": 0.0,
+            "recall_at_5": 0.75,
+            "recall_at_10": 0.75,
+            "mrr_at_10": 0.2375,
+            "ndcg_at_10": 0.36211477971984807,
+            "mean_latency_ms": 23.263333333333332
+          },
+          "romanized": {
+            "n_queries": 6,
+            "recall_at_1": 0.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr_at_10": 0.375,
+            "ndcg_at_10": 0.5308031558224253,
+            "mean_latency_ms": 22.448333333333334
+          },
+          "code_mixed": {
+            "n_queries": 6,
+            "recall_at_1": 0.5,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr_at_10": 0.6333333333333333,
+            "ndcg_at_10": 0.7217132018086354,
+            "mean_latency_ms": 23.30666666666667
+          }
+        }
+      },
+      "per_query": [
+        {
+          "query_id": "Q_DEV_001_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 28.01,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.902107
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.899093
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.898494
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.89821
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.896926
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.896815
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.894927
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.891762
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.891555
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.891551
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_001_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.43067655807339306,
+          "latency_ms": 24.93,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.87161
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.8687
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.865307
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.864392
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.863655
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.863272
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.86266
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.861202
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.861139
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.860026
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_001_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 24.2,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.788593
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.786963
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.785283
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.78316
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.782463
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 0.778746
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.778633
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.777242
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.776978
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0001",
+              "document_id": "TE_DOC_002",
+              "score": 0.776855
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_002_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.43067655807339306,
+          "latency_ms": 26.56,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.903562
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.902354
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.901939
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.901233
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.900576
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.899763
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.897975
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.894765
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.891326
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.890706
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_002_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.43067655807339306,
+          "latency_ms": 24.48,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.903562
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.902354
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.901939
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.901233
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.900576
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.899763
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.897975
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.894765
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.891326
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.890706
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_002_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 24.94,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.796104
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0002",
+              "document_id": "TE_DOC_007",
+              "score": 0.794346
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.792573
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.792336
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.79161
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.790917
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.790198
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.789602
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.788409
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.787429
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_003_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 25.4,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.903562
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.902354
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.901939
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.901233
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.900576
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.899763
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.897975
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.894765
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.891326
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.890706
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_003_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 23.97,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_004#c0001",
+              "document_id": "TE_DOC_004",
+              "score": 0.678677
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0002",
+              "document_id": "TE_DOC_007",
+              "score": 0.66495
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0001",
+              "document_id": "TE_DOC_002",
+              "score": 0.661872
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.658353
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.657765
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.655154
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.654315
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.653104
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0002",
+              "document_id": "TE_DOC_001",
+              "score": 0.653035
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 0.652726
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_003_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.3333333333333333,
+          "ndcg_at_10": 0.5,
+          "latency_ms": 23.96,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_004#c0001",
+              "document_id": "TE_DOC_004",
+              "score": 0.680264
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0001",
+              "document_id": "TE_DOC_002",
+              "score": 0.676524
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0002",
+              "document_id": "TE_DOC_007",
+              "score": 0.671517
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.670019
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.668707
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.665274
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.663913
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 0.663813
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0002",
+              "document_id": "TE_DOC_005",
+              "score": 0.663744
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.661643
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_004_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 20.42,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.903562
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.902354
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.901939
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.901233
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.900576
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.899763
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.897975
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.894765
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.891326
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.890706
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_004_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 20.22,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.612793
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.611248
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.610965
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.607448
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.604625
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.603462
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.603398
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0002",
+              "document_id": "TE_DOC_005",
+              "score": 0.603216
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.600667
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.596155
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_004_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 23.01,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.596829
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.592738
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.592406
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.592164
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0002",
+              "document_id": "TE_DOC_005",
+              "score": 0.591649
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.591246
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.590811
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.584099
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.580937
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0002",
+              "document_id": "TE_DOC_001",
+              "score": 0.580846
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_005_NAT",
+          "modality": "native",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 19.24,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.893321
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.887899
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.88764
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.884801
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.884123
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.880323
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.878846
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.874642
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0000",
+              "document_id": "TE_DOC_008",
+              "score": 0.873775
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.87067
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_005_ROM",
+          "modality": "romanized",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 20.96,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.874122
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.872075
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.871031
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.870846
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.870246
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 0.868161
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.865811
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.864424
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0002",
+              "document_id": "TE_DOC_007",
+              "score": 0.863617
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.86358
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_005_MIX",
+          "modality": "code_mixed",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 19.86,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.875334
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.873733
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.872708
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.872007
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.871549
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.867937
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.867057
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 0.866236
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.86498
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.864121
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_006_NAT",
+          "modality": "native",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 19.95,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.893321
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.887899
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.88764
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.884801
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.884123
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.880323
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.878846
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.874642
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0000",
+              "document_id": "TE_DOC_008",
+              "score": 0.873775
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.87067
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_006_ROM",
+          "modality": "romanized",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 20.13,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.881855
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.879689
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.879611
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.878981
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.878385
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.877476
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.877284
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0002",
+              "document_id": "TE_DOC_007",
+              "score": 0.876898
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.876825
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.87541
+            }
+          ]
+        },
+        {
+          "query_id": "Q_DEV_006_MIX",
+          "modality": "code_mixed",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 23.87,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_004#c0000",
+              "document_id": "TE_DOC_004",
+              "score": 0.730733
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0000",
+              "document_id": "TE_DOC_008",
+              "score": 0.730258
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.727481
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.725153
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0000",
+              "document_id": "TE_DOC_002",
+              "score": 0.722585
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.722565
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.720963
+            },
+            {
+              "chunk_id": "TE_DOC_006#c0000",
+              "document_id": "TE_DOC_006",
+              "score": 0.71874
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.718416
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.712036
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "split": "eval",
+      "condition": "dense_multilingual",
+      "condition_metadata": {
+        "condition": "dense_multilingual",
+        "description": "Dense semantic retrieval with paraphrase-multilingual-MiniLM-L12-v2",
+        "model_license": "Apache-2.0"
+      },
+      "queries_file": "D:\\Sage-Indic\\data\\processed\\rag\\phase2d_eval_queries_eval.jsonl",
+      "queries_sha256": "da26df140621b82b12567bdc29040768cb8241d258689f534c8ae4ce130c0609",
+      "qrels_file": "D:\\Sage-Indic\\data\\processed\\rag\\phase2d_qrels_eval.jsonl",
+      "qrels_sha256": "48b7c2c8bac7c5c5be1a71af191f7a585ea862dd584d46a130b7a566c90d860c",
+      "corpus_chunks_sha256": "8a51ae3069b3f7336947d3ed972276fbd7378133d269aec2e8b0d7493797b543",
+      "n_queries": 24,
+      "n_qrels": 720,
+      "top_k": 10,
+      "index_time_seconds": 2.3251,
+      "metrics": {
+        "overall": {
+          "n_queries": 24,
+          "recall_at_1": 0.05555555555555555,
+          "recall_at_5": 0.4444444444444444,
+          "recall_at_10": 0.6666666666666666,
+          "mrr_at_10": 0.19503968253968254,
+          "ndcg_at_10": 0.3050655567767937,
+          "mean_latency_ms": 21.63
+        },
+        "answerable": {
+          "n_queries": 18,
+          "recall_at_1": 0.05555555555555555,
+          "recall_at_5": 0.4444444444444444,
+          "recall_at_10": 0.6666666666666666,
+          "mrr_at_10": 0.19503968253968254,
+          "ndcg_at_10": 0.3050655567767937,
+          "mean_latency_ms": 21.49
+        },
+        "unanswerable": {
+          "n_queries": 6,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "mean_latency_ms": 22.05
+        },
+        "by_modality": {
+          "native": {
+            "n_queries": 8,
+            "recall_at_1": 0.0,
+            "recall_at_5": 0.5,
+            "recall_at_10": 0.6666666666666666,
+            "mrr_at_10": 0.1626984126984127,
+            "ndcg_at_10": 0.2824477415800199,
+            "mean_latency_ms": 22.2025
+          },
+          "romanized": {
+            "n_queries": 8,
+            "recall_at_1": 0.0,
+            "recall_at_5": 0.3333333333333333,
+            "recall_at_10": 0.6666666666666666,
+            "mrr_at_10": 0.11825396825396826,
+            "ndcg_at_10": 0.24387435581840644,
+            "mean_latency_ms": 21.08375
+          },
+          "code_mixed": {
+            "n_queries": 8,
+            "recall_at_1": 0.16666666666666666,
+            "recall_at_5": 0.5,
+            "recall_at_10": 0.6666666666666666,
+            "mrr_at_10": 0.30416666666666664,
+            "ndcg_at_10": 0.38887457293195465,
+            "mean_latency_ms": 21.60375
+          }
+        }
+      },
+      "per_query": [
+        {
+          "query_id": "Q_EVAL_001_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.43067655807339306,
+          "latency_ms": 24.71,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.911734
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.910985
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.910842
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.910721
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.910199
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.908688
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.908685
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.907823
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.904787
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.903517
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_001_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.16666666666666666,
+          "ndcg_at_10": 0.3562071871080222,
+          "latency_ms": 22.09,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.893071
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.891584
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.890242
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.889957
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.889217
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.88852
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.887548
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.887545
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.886371
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.886009
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_001_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.125,
+          "ndcg_at_10": 0.31546487678572877,
+          "latency_ms": 22.01,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.868386
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.868265
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.867639
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.86683
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.862959
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.862352
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.858196
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.856113
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.855002
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.852926
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_002_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.3333333333333333,
+          "ndcg_at_10": 0.5,
+          "latency_ms": 22.3,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.903562
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.902354
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.901939
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.901233
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.900576
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.899763
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.897975
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.894765
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.891326
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.890706
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_002_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 21.14,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.863249
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0000",
+              "document_id": "TE_DOC_008",
+              "score": 0.862067
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0000",
+              "document_id": "TE_DOC_004",
+              "score": 0.86045
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.854266
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.852682
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.85188
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.849191
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0000",
+              "document_id": "TE_DOC_002",
+              "score": 0.849093
+            },
+            {
+              "chunk_id": "TE_DOC_006#c0000",
+              "document_id": "TE_DOC_006",
+              "score": 0.84716
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.841628
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_002_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 20.69,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 0.849758
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0001",
+              "document_id": "TE_DOC_002",
+              "score": 0.842375
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.837026
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.834487
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0001",
+              "document_id": "TE_DOC_003",
+              "score": 0.833173
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.832362
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0001",
+              "document_id": "TE_DOC_005",
+              "score": 0.831833
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.831164
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.829862
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0002",
+              "document_id": "TE_DOC_007",
+              "score": 0.829793
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_003_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 20.66,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.912681
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.91242
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.912418
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.912055
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.911727
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.911261
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.910495
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.909489
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.908144
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.908078
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_003_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 20.29,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.907158
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.906935
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.905663
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.90546
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.904289
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.903848
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.903468
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.903241
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.902661
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.901248
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_003_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 20.68,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.757617
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.754674
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.750835
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0001",
+              "document_id": "TE_DOC_002",
+              "score": 0.749007
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.74853
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.747967
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 0.74724
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.74255
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.74237
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.738946
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_004_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 20.24,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.907859
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.906088
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.903752
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.901534
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.90087
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.896629
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.896557
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0000",
+              "document_id": "TE_DOC_008",
+              "score": 0.894173
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.892715
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.891289
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_004_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 20.38,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.915263
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.915138
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.914631
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.914102
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.913661
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.912599
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.911537
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.910444
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.910024
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.910004
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_004_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 21.39,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 0.790403
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0001",
+              "document_id": "TE_DOC_009",
+              "score": 0.78132
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0001",
+              "document_id": "TE_DOC_003",
+              "score": 0.779795
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.779312
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0002",
+              "document_id": "TE_DOC_007",
+              "score": 0.777337
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0002",
+              "document_id": "TE_DOC_008",
+              "score": 0.777081
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.776519
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0001",
+              "document_id": "TE_DOC_001",
+              "score": 0.774032
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0001",
+              "document_id": "TE_DOC_005",
+              "score": 0.773103
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0001",
+              "document_id": "TE_DOC_002",
+              "score": 0.772392
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_005_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.43067655807339306,
+          "latency_ms": 23.3,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.943938
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0002",
+              "document_id": "TE_DOC_010",
+              "score": 0.938694
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.936411
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.933561
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.933174
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.931423
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 0.930971
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0001",
+              "document_id": "TE_DOC_005",
+              "score": 0.930141
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.929208
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.928425
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_005_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 21.39,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.883277
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.883187
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.882676
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.88086
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.877764
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.877633
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.87506
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.874971
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.874551
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.87337
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_005_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 21.69,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.866594
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.863079
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.862952
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.862432
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.861599
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0002",
+              "document_id": "TE_DOC_007",
+              "score": 0.859225
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.858406
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.85738
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.854672
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 0.854391
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_006_NAT",
+          "modality": "native",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.14285714285714285,
+          "ndcg_at_10": 0.3333333333333333,
+          "latency_ms": 22.01,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.906758
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.906455
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.906422
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.905702
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.905597
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.905336
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.90398
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.901138
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.897534
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.897387
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_006_ROM",
+          "modality": "romanized",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 0.0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 0.14285714285714285,
+          "ndcg_at_10": 0.3333333333333333,
+          "latency_ms": 20.56,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.906758
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.906455
+            },
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.906422
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.905702
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.905597
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.905336
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.90398
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.901138
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.897534
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.897387
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_006_MIX",
+          "modality": "code_mixed",
+          "is_answerable": true,
+          "n_relevant_docs": 1,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 21.29,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.851784
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.851734
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.851626
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.851423
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.851374
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.8482
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0002",
+              "document_id": "TE_DOC_007",
+              "score": 0.844863
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.844578
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.842578
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.841266
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_007_NAT",
+          "modality": "native",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 21.09,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.896389
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.895443
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.892931
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.890999
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.890404
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.886477
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.885695
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.882788
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.881769
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0000",
+              "document_id": "TE_DOC_008",
+              "score": 0.880122
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_007_ROM",
+          "modality": "romanized",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 20.62,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.798672
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.797226
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.797119
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.795945
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.795606
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.794958
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 0.791955
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.791551
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.787976
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0001",
+              "document_id": "TE_DOC_002",
+              "score": 0.787855
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_007_MIX",
+          "modality": "code_mixed",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 23.37,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.844377
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.844218
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.843856
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.842718
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.842396
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.8423
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.84201
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.839925
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.838263
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.835941
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_008_NAT",
+          "modality": "native",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 23.31,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_005#c0000",
+              "document_id": "TE_DOC_005",
+              "score": 0.88801
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.8793
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.878865
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.873804
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.87329
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0000",
+              "document_id": "TE_DOC_008",
+              "score": 0.873188
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0000",
+              "document_id": "TE_DOC_004",
+              "score": 0.869831
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.867714
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.865706
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.860649
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_008_ROM",
+          "modality": "romanized",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 22.2,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.89149
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.891435
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.890368
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0000",
+              "document_id": "TE_DOC_007",
+              "score": 0.890045
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0000",
+              "document_id": "TE_DOC_003",
+              "score": 0.889778
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.889773
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0000",
+              "document_id": "TE_DOC_010",
+              "score": 0.88857
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.888246
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.888027
+            },
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.887911
+            }
+          ]
+        },
+        {
+          "query_id": "Q_EVAL_008_MIX",
+          "modality": "code_mixed",
+          "is_answerable": false,
+          "n_relevant_docs": 0,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "mrr_at_10": null,
+          "ndcg_at_10": null,
+          "latency_ms": 21.71,
+          "top_retrieved": [
+            {
+              "chunk_id": "TE_DOC_001#c0000",
+              "document_id": "TE_DOC_001",
+              "score": 0.806304
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0002",
+              "document_id": "TE_DOC_009",
+              "score": 0.803617
+            },
+            {
+              "chunk_id": "TE_DOC_009#c0000",
+              "document_id": "TE_DOC_009",
+              "score": 0.801431
+            },
+            {
+              "chunk_id": "TE_DOC_003#c0002",
+              "document_id": "TE_DOC_003",
+              "score": 0.801402
+            },
+            {
+              "chunk_id": "TE_DOC_010#c0001",
+              "document_id": "TE_DOC_010",
+              "score": 0.79972
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0001",
+              "document_id": "TE_DOC_002",
+              "score": 0.798952
+            },
+            {
+              "chunk_id": "TE_DOC_008#c0001",
+              "document_id": "TE_DOC_008",
+              "score": 0.796885
+            },
+            {
+              "chunk_id": "TE_DOC_007#c0001",
+              "document_id": "TE_DOC_007",
+              "score": 0.796142
+            },
+            {
+              "chunk_id": "TE_DOC_002#c0002",
+              "document_id": "TE_DOC_002",
+              "score": 0.794987
+            },
+            {
+              "chunk_id": "TE_DOC_004#c0002",
+              "document_id": "TE_DOC_004",
+              "score": 0.794873
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

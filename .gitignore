@@ -59,3 +59,8 @@ experiments/runs/*
 *.bin
 *.safetensors
 *.onnx
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local

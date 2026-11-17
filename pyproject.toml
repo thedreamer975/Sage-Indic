@@ -12,12 +12,19 @@ license = { text = "Apache-2.0" }
 authors = [
     { name = "SAGE-Indic Team" }
 ]
-dependencies = []
+dependencies = [
+    "tokenizers>=0.20.0",
+]
 
 [project.optional-dependencies]
+app = [
+    "fastapi>=0.110.0",
+    "uvicorn>=0.27.0",
+]
 dev = [
     "pytest>=8.0.0",
     "ruff>=0.4.0",
+    "httpx>=0.27.0",
 ]
 
 [tool.setuptools.packages.find]

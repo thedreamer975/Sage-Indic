@@ -1,0 +1,552 @@
+{
+  "experiment_id": "exp_2d_verification_relation_aware_dev_verification_20261016_041203",
+  "timestamp_utc": "2026-10-16T04:12:03.707873+00:00",
+  "dataset_path": "data\\processed\\verification\\dev_verification.jsonl",
+  "split": "dev_verification",
+  "verifier_name": "relation_aware",
+  "verifier_version": "2.0.0",
+  "total_examples": 24,
+  "overall_accuracy": 0.6667,
+  "macro_f1": 0.6929,
+  "genuine_supported_recall": 0.5714,
+  "mean_latency_ms": 0.38,
+  "class_metrics": {
+    "SUPPORTED": {
+      "support": 7,
+      "true_positives": 4,
+      "false_positives": 4,
+      "false_negatives": 3,
+      "precision": 0.5,
+      "recall": 0.5714,
+      "f1_score": 0.5333
+    },
+    "CONTRADICTED": {
+      "support": 8,
+      "true_positives": 4,
+      "false_positives": 0,
+      "false_negatives": 4,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1_score": 0.6667
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "support": 5,
+      "true_positives": 5,
+      "false_positives": 4,
+      "false_negatives": 0,
+      "precision": 0.5556,
+      "recall": 1.0,
+      "f1_score": 0.7143
+    },
+    "CONFLICTING_EVIDENCE": {
+      "support": 4,
+      "true_positives": 3,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1_score": 0.8571
+    }
+  },
+  "confusion_matrix": {
+    "SUPPORTED": {
+      "SUPPORTED": 4,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 3,
+      "CONFLICTING_EVIDENCE": 0
+    },
+    "CONTRADICTED": {
+      "SUPPORTED": 3,
+      "CONTRADICTED": 4,
+      "INSUFFICIENT_EVIDENCE": 1,
+      "CONFLICTING_EVIDENCE": 0
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "SUPPORTED": 0,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 5,
+      "CONFLICTING_EVIDENCE": 0
+    },
+    "CONFLICTING_EVIDENCE": {
+      "SUPPORTED": 1,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "CONFLICTING_EVIDENCE": 3
+    }
+  },
+  "modality_performance": {
+    "native": {
+      "total": 14,
+      "correct": 12,
+      "accuracy": 0.8571
+    },
+    "romanized": {
+      "total": 6,
+      "correct": 4,
+      "accuracy": 0.6667
+    },
+    "code_mixed": {
+      "total": 4,
+      "correct": 0,
+      "accuracy": 0.0
+    }
+  },
+  "diagnostic_subset_performance": {
+    "relational_mismatch": {
+      "total": 2,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "partial_evidence": {
+      "total": 2,
+      "correct": 1,
+      "accuracy": 0.5
+    },
+    "direct_support": {
+      "total": 6,
+      "correct": 4,
+      "accuracy": 0.6667
+    },
+    "numerical_contradiction": {
+      "total": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "polarity_contradiction": {
+      "total": 2,
+      "correct": 1,
+      "accuracy": 0.5
+    },
+    "conflicting_passages": {
+      "total": 4,
+      "correct": 3,
+      "accuracy": 0.75
+    },
+    "unrelated_evidence": {
+      "total": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "distractor_high_overlap": {
+      "total": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "adversarial_injection": {
+      "total": 2,
+      "correct": 1,
+      "accuracy": 0.5
+    }
+  },
+  "false_supported_metrics": {
+    "count": 4,
+    "total_non_supported_ground_truth": 17,
+    "false_supported_rate": 0.2353,
+    "items": [
+      {
+        "example_id": "V_DEV_011",
+        "diagnostic_type": "relational_mismatch",
+        "claim": "చార్మినార్ కులీ కుతుబ్ షా యొక్క సమాధి భవనం.",
+        "gold_outcome": "CONTRADICTED",
+        "pred_outcome": "SUPPORTED",
+        "confidence": 0.7714,
+        "explanation": "Substantial factual alignment: Key terms ['షా', 'కులీ', 'కుతుబ్'] and relation substantiated by passage TE_DOC_001#c0001.",
+        "annotation_notes": "Relational mismatch trap: entities match, but claim asserts Charminar is a tomb (సమాధి) whereas evidence states it was built as a monument celebrating plague eradication."
+      },
+      {
+        "example_id": "V_DEV_012",
+        "diagnostic_type": "relational_mismatch",
+        "claim": "మహమ్మద్ కులీ కుతుబ్ షా 1591 లో మరణించాడు.",
+        "gold_outcome": "CONTRADICTED",
+        "pred_outcome": "SUPPORTED",
+        "confidence": 0.9143,
+        "explanation": "Verified factual alignment: Number {'1591'} and relation 'death_or_tomb' substantiated by TE_DOC_001#c0001.",
+        "annotation_notes": "Relational mismatch trap: date 1591 and ruler match, but claim asserts death year rather than monument construction."
+      },
+      {
+        "example_id": "V_DEV_018",
+        "diagnostic_type": "partial_evidence",
+        "claim": "Nagarjuna Sagar 1955 lo start ayyi 1999 lo complete ayindi.",
+        "gold_outcome": "CONTRADICTED",
+        "pred_outcome": "SUPPORTED",
+        "confidence": 0.7,
+        "explanation": "Verified factual alignment: Number {'1955'} and relation 'construction' substantiated by TE_DOC_004#c0001.",
+        "annotation_notes": "Conjunctive claim: 1955 start is true, but 1999 completion directly contradicts evidence (1967)."
+      },
+      {
+        "example_id": "V_DEV_022",
+        "diagnostic_type": "conflicting_passages",
+        "claim": "Golconda fort stone expansion 16th century lo jarigindi.",
+        "gold_outcome": "CONFLICTING_EVIDENCE",
+        "pred_outcome": "SUPPORTED",
+        "confidence": 0.775,
+        "explanation": "Substantial factual alignment: Key terms ['stone', 'expansion', 'fort', 'jarigindi', 'century'] and relation substantiated by passage TE_DOC_002#c0001.",
+        "annotation_notes": "Cross-passage conflict in code-mixed: 16th century vs 18th century."
+      }
+    ]
+  },
+  "score_distribution_heuristic": {
+    "SUPPORTED": {
+      "count": 8,
+      "mean": 0.7925,
+      "min": 0.7,
+      "max": 0.9143
+    },
+    "CONTRADICTED": {
+      "count": 4,
+      "mean": 0.925,
+      "min": 0.85,
+      "max": 0.95
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "count": 9,
+      "mean": 0.8056,
+      "min": 0.8,
+      "max": 0.85
+    },
+    "CONFLICTING_EVIDENCE": {
+      "count": 3,
+      "mean": 0.95,
+      "min": 0.95,
+      "max": 0.95
+    }
+  },
+  "records": [
+    {
+      "example_id": "V_DEV_001",
+      "diagnostic_type": "direct_support",
+      "claim_id": "C_DEV_001",
+      "claim_text": "చార్మినార్ 1591 లో మహమ్మద్ కులీ కుతుబ్ షా చేత నిర్మించబడింది.",
+      "modality": "native",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.8667,
+      "is_correct": true,
+      "explanation": "Verified factual alignment: Number {'1591'} and relation 'construction' substantiated by TE_DOC_001#c0001.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_002",
+      "diagnostic_type": "direct_support",
+      "claim_id": "C_DEV_002",
+      "claim_text": "రామప్ప దేవాలయానికి 2021 లో యునెస్కో ప్రపంచ వారసత్వ హోదా లభించింది.",
+      "modality": "native",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.8667,
+      "is_correct": true,
+      "explanation": "Verified factual alignment: Number {'2021'} and relation 'award_or_status' substantiated by TE_DOC_005#c0002.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_003",
+      "diagnostic_type": "direct_support",
+      "claim_id": "C_DEV_003",
+      "claim_text": "Charminar prathi minaru etthu 56 metirlu untundi.",
+      "modality": "romanized",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.7462,
+      "is_correct": true,
+      "explanation": "Verified factual alignment: Number {'56'} and relation 'attested' substantiated by TE_DOC_001#c0002.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_004",
+      "diagnostic_type": "direct_support",
+      "claim_id": "C_DEV_004",
+      "claim_text": "Nagarjuna Sagar dam nirmanam 1955 lo modhalaindi.",
+      "modality": "romanized",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.7,
+      "is_correct": true,
+      "explanation": "Verified factual alignment: Number {'1955'} and relation 'attested' substantiated by TE_DOC_004#c0001.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_005",
+      "diagnostic_type": "direct_support",
+      "claim_id": "C_DEV_005",
+      "claim_text": "Warangal fort Kakatiya kings capital ga undedi.",
+      "modality": "code_mixed",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": false,
+      "explanation": "Evidence does not contain sufficient relation or entity grounding for this proposition.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_006",
+      "diagnostic_type": "direct_support",
+      "claim_id": "C_DEV_006",
+      "claim_text": "Kohinoor diamond Golconda region nunde labhinchindi.",
+      "modality": "code_mixed",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": false,
+      "explanation": "Evidence does not contain sufficient relation or entity grounding for this proposition.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_007",
+      "diagnostic_type": "numerical_contradiction",
+      "claim_id": "C_DEV_007",
+      "claim_text": "చార్మినార్ 1720 లో నిర్మించబడింది.",
+      "modality": "native",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "CONTRADICTED",
+      "confidence": 0.95,
+      "is_correct": true,
+      "explanation": "Numerical contradiction: Proposition asserts {'1720'}, but evidence passage TE_DOC_001#c0001 specifies {'1591'}.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_008",
+      "diagnostic_type": "numerical_contradiction",
+      "claim_id": "C_DEV_008",
+      "claim_text": "రామప్ప దేవాలయం 1500 లో నిర్మించబడింది.",
+      "modality": "native",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "CONTRADICTED",
+      "confidence": 0.95,
+      "is_correct": true,
+      "explanation": "Numerical contradiction: Proposition asserts {'1500'}, but evidence passage TE_DOC_005#c0001 specifies {'1213'}.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_009",
+      "diagnostic_type": "polarity_contradiction",
+      "claim_id": "C_DEV_009",
+      "claim_text": "గోల్కొండ కోటలో చప్పట్ల శబ్దం బాలాహిస్సార్ వద్ద వినిపించదు.",
+      "modality": "native",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "CONTRADICTED",
+      "confidence": 0.85,
+      "is_correct": true,
+      "explanation": "Polarity contradiction on shared terms: Proposition negated=True.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_010",
+      "diagnostic_type": "polarity_contradiction",
+      "claim_id": "C_DEV_010",
+      "claim_text": "Nagarjuna Sagar dam Krishna river pai nirminchaledu.",
+      "modality": "romanized",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": false,
+      "explanation": "Evidence does not contain sufficient relation or entity grounding for this proposition.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_011",
+      "diagnostic_type": "relational_mismatch",
+      "claim_id": "C_DEV_011",
+      "claim_text": "చార్మినార్ కులీ కుతుబ్ షా యొక్క సమాధి భవనం.",
+      "modality": "native",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.7714,
+      "is_correct": false,
+      "explanation": "Substantial factual alignment: Key terms ['షా', 'కులీ', 'కుతుబ్'] and relation substantiated by passage TE_DOC_001#c0001.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_012",
+      "diagnostic_type": "relational_mismatch",
+      "claim_id": "C_DEV_012",
+      "claim_text": "మహమ్మద్ కులీ కుతుబ్ షా 1591 లో మరణించాడు.",
+      "modality": "native",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.9143,
+      "is_correct": false,
+      "explanation": "Verified factual alignment: Number {'1591'} and relation 'death_or_tomb' substantiated by TE_DOC_001#c0001.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_013",
+      "diagnostic_type": "unrelated_evidence",
+      "claim_id": "C_DEV_013",
+      "claim_text": "కంచి కామాక్షి దేవాలయం తమిళనాడు రాష్ట్రంలో ఉంది.",
+      "modality": "native",
+      "gold_outcome": "INSUFFICIENT_EVIDENCE",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": true,
+      "explanation": "Evidence does not contain sufficient relation or entity grounding for this proposition.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_014",
+      "diagnostic_type": "unrelated_evidence",
+      "claim_id": "C_DEV_014",
+      "claim_text": "Bhakra Nangal dam Satluj river pai unnadhi.",
+      "modality": "romanized",
+      "gold_outcome": "INSUFFICIENT_EVIDENCE",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": true,
+      "explanation": "Evidence does not contain sufficient relation or entity grounding for this proposition.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_015",
+      "diagnostic_type": "distractor_high_overlap",
+      "claim_id": "C_DEV_015",
+      "claim_text": "గోల్కొండ ప్రాంతం ప్రపంచంలోనే అత్యంత విస్తృతమైన బంగారు గనులకు ప్రసిద్ధి.",
+      "modality": "native",
+      "gold_outcome": "INSUFFICIENT_EVIDENCE",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": true,
+      "explanation": "Evidence does not contain sufficient relation or entity grounding for this proposition.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_016",
+      "diagnostic_type": "distractor_high_overlap",
+      "claim_id": "C_DEV_016",
+      "claim_text": "రామప్ప గుడి గోపురం పాలరాతి శిల్పాలతో అలంకరించబడింది.",
+      "modality": "native",
+      "gold_outcome": "INSUFFICIENT_EVIDENCE",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": true,
+      "explanation": "Evidence does not contain sufficient relation or entity grounding for this proposition.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_017",
+      "diagnostic_type": "partial_evidence",
+      "claim_id": "C_DEV_017",
+      "claim_text": "వరంగల్ కోట గణపతి దేవుని కాలంలో ప్రారంభమై, ఆయన తర్వాత ఢిల్లీ సుల్తానుల చేత విస్తరించబడింది.",
+      "modality": "native",
+      "gold_outcome": "INSUFFICIENT_EVIDENCE",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.85,
+      "is_correct": true,
+      "explanation": "Partial evidence / INSUFFICIENT_EVIDENCE: Only 1 of 2 propositions are substantiated. Partial evidence is explicitly not promoted to SUPPORTED.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_018",
+      "diagnostic_type": "partial_evidence",
+      "claim_id": "C_DEV_018",
+      "claim_text": "Nagarjuna Sagar 1955 lo start ayyi 1999 lo complete ayindi.",
+      "modality": "romanized",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.7,
+      "is_correct": false,
+      "explanation": "Verified factual alignment: Number {'1955'} and relation 'construction' substantiated by TE_DOC_004#c0001.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_019",
+      "diagnostic_type": "conflicting_passages",
+      "claim_id": "C_DEV_019",
+      "claim_text": "చార్మినార్ మినార్ ఎత్తు 56 మీటర్లు.",
+      "modality": "native",
+      "gold_outcome": "CONFLICTING_EVIDENCE",
+      "pred_outcome": "CONFLICTING_EVIDENCE",
+      "confidence": 0.95,
+      "is_correct": true,
+      "explanation": "Multi-passage factual conflict: Passage TE_DOC_001#c0002 contains {'56'}, whereas Passage TE_DOC_001#c0002 contains {'75'}.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_020",
+      "diagnostic_type": "conflicting_passages",
+      "claim_id": "C_DEV_020",
+      "claim_text": "రామప్ప దేవాలయం 1213 లో నిర్మించబడింది.",
+      "modality": "native",
+      "gold_outcome": "CONFLICTING_EVIDENCE",
+      "pred_outcome": "CONFLICTING_EVIDENCE",
+      "confidence": 0.95,
+      "is_correct": true,
+      "explanation": "Multi-passage factual conflict: Passage TE_DOC_005#c0001 contains {'1213'}, whereas Passage TE_DOC_005#c0001 contains {'1285'}.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_021",
+      "diagnostic_type": "conflicting_passages",
+      "claim_id": "C_DEV_021",
+      "claim_text": "Nagarjuna Sagar dam 1967 lo poorthi ayindi.",
+      "modality": "romanized",
+      "gold_outcome": "CONFLICTING_EVIDENCE",
+      "pred_outcome": "CONFLICTING_EVIDENCE",
+      "confidence": 0.95,
+      "is_correct": true,
+      "explanation": "Multi-passage factual conflict: Passage TE_DOC_004#c0001 contains {'1967', '1955'}, whereas Passage TE_DOC_004#c0001 contains {'1974'}.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_022",
+      "diagnostic_type": "conflicting_passages",
+      "claim_id": "C_DEV_022",
+      "claim_text": "Golconda fort stone expansion 16th century lo jarigindi.",
+      "modality": "code_mixed",
+      "gold_outcome": "CONFLICTING_EVIDENCE",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.775,
+      "is_correct": false,
+      "explanation": "Substantial factual alignment: Key terms ['stone', 'expansion', 'fort', 'jarigindi', 'century'] and relation substantiated by passage TE_DOC_002#c0001.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_DEV_023",
+      "diagnostic_type": "adversarial_injection",
+      "claim_id": "C_DEV_023",
+      "claim_text": "చార్మినార్ 1980 లో నిర్మించబడింది.",
+      "modality": "native",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "CONTRADICTED",
+      "confidence": 0.95,
+      "is_correct": true,
+      "explanation": "Numerical contradiction: Proposition asserts {'1980'}, but evidence passage TE_DOC_001#c0001 specifies {'1591'}.",
+      "adversarial_injection_present": true,
+      "adversarial_injection_detected": true
+    },
+    {
+      "example_id": "V_DEV_024",
+      "diagnostic_type": "adversarial_injection",
+      "claim_id": "C_DEV_024",
+      "claim_text": "Warangal fort Kakatiya capital.",
+      "modality": "code_mixed",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": false,
+      "explanation": "Evidence does not contain sufficient relation or entity grounding for this proposition.",
+      "adversarial_injection_present": true,
+      "adversarial_injection_detected": true
+    }
+  ]
+}

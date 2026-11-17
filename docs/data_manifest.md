@@ -249,6 +249,48 @@ This document provides a comprehensive, primary-source-verified dataset inventor
 * **Project Suitability:** **OPTIONAL (Baseline Reference Only)**. Helpful as a noisy real-world baseline for code-mix detection, but inadequate for SAGE-Indic safety evaluation due to lack of matched tri-form pairs and absence of benign sensitive-word control prompts.
 * **Supported SAGE-Indic Components:** Component 1 (Code-mix detection baseline), Component 3 (Safety baseline reference).
 
+### 3.12 HOLD-Telugu (EACL 2024 DravidianLangTech Shared Task)
+* **Official Name:** Hate and Offensive Language Detection in Telugu Codemixed Text (HOLD-Telugu)
+* **Official Repository:** ACL Anthology / EACL 2024 / CodaLab
+* **Paper / Citation:** Findings of the Shared Task on Hate and Offensive Language Detection in Telugu Codemixed Text (HOLD-Telugu) @ DravidianLangTech 2024 ([ACL Anthology 2024.dravidianlangtech-1.8](https://aclanthology.org/2024.dravidianlangtech-1.8/)).
+* **Key Participant Baselines:**
+  - *Sandalphon* (Tabassum et al., [ACL 2024.dravidianlangtech-1.28](https://aclanthology.org/2024.dravidianlangtech-1.28/)): Transliteration augmentation + Telugu-BERT, 1st place, Macro-F1 0.77.
+  - *Lidoma* (Zamir et al., [ACL 2024.dravidianlangtech-1.16](https://aclanthology.org/2024.dravidianlangtech-1.16/)): Fine-tuned multilingual BERT (mBERT), Macro-F1 ~0.615.
+* **Language Coverage:** Telugu and Telugu-English code-mixed YouTube comments.
+* **Telugu Inclusion:** Yes (Native and Romanized).
+* **Format:** TSV / CSV (Hate, Offensive, Non-hate).
+* **License:** Creative Commons Attribution 4.0 International (CC BY 4.0).
+* **Project Suitability:** **HIGH (External Benchmark Reference)**. Excellent for evaluating cross-distribution generalization of SAGE-Indic safety classification on real-world noisy code-mixed comments.
+* **Supported SAGE-Indic Components:** Component 3 (Context-Aware Safety Guardrail).
+
+### 3.13 Telugu-English Abusive Language Dataset (2025)
+* **Official Name:** Code-Mixed Telugu-English Abusive Language Dataset
+* **Paper / Citation:** *Creating and Evaluating Code-Mixed Nepali-English and Telugu-English Datasets for Abusive Language Detection Using Traditional and Deep Learning Models*, arXiv: [2504.21026](https://arxiv.org/abs/2504.21026) (2025).
+* **Language Coverage:** Telugu-English code-mixed comments.
+* **Approximate Size:** 2,000 manually annotated comments (Abusive vs Non-abusive).
+* **Format:** JSON / CSV.
+* **License:** Open Academic Access.
+* **Project Suitability:** **MEDIUM-HIGH (Independent Evaluation Set)**. Useful for second-source cross-validation of abusive/offensive classification.
+* **Supported SAGE-Indic Components:** Component 3 (Context-Aware Safety Guardrail).
+
+### 3.14 Cleanword (Indian-Language Profanity Lexicon)
+* **Official Name:** Cleanword (`NabarupDev/cleanword`)
+* **Repository:** GitHub (`NabarupDev/cleanword`)
+* **Primary Purpose:** Multi-language Indian profanity detection and filtering library.
+* **Telugu Inclusion:** Yes (contains curated root lists of Telugu slurs and abusive terms in native and Romanized forms).
+* **License:** MIT / Permissive Open Source.
+* **Project Suitability:** **MEDIUM (Lexical Baseline Enrichment)**. Useful for seeding root terms in `CRITICAL_VIOLENCE_ROOTS` and `LEXICAL_BLACKLIST`. Inadequate on its own due to inability to handle Telugu agglutinative inflection or benign-sensitive polysemy without SAGE preprocessing.
+* **Supported SAGE-Indic Components:** Component 3 (Lexical safety baseline and root seed lexicon).
+
+### 3.15 Telugu UKC Lexicon (Universal Knowledge Core)
+* **Official Name:** Telugu UKC Concept Lexicon
+* **Repository / Provider:** DataScientia Foundation / LiveLanguage (`tel-ukc-lexicon`)
+* **Primary Purpose:** Comprehensive lexical database of Telugu concept synsets, semantic hierarchies, and parts of speech.
+* **Language Coverage:** Native Telugu vocabulary.
+* **License:** Open Academic / Research Use.
+* **Project Suitability:** **HIGH (Safe-Word Vocabulary & Semantic Grounding)**. Provides extensive verified clean Telugu vocabulary to establish safe reference distributions, assist morphological validation, and support benign-context semantic disambiguation.
+* **Supported SAGE-Indic Components:** Component 2 (Tokenizer vocabulary validation), Component 3 (Safe vocabulary & benign-context disambiguation).
+
 ---
 
 ## 4. License & Legal Compatibility Matrix
@@ -261,6 +303,10 @@ This document provides a comprehensive, primary-source-verified dataset inventor
 | **FLORES-200** | CC BY-SA 4.0 | Yes | Yes | Yes | Attribution + ShareAlike | Low Risk (Standard academic compliance) |
 | **UD_Telugu-MTG** | CC BY-NC-SA 3.0 | **No (Non-Commercial)**| Yes | Yes | Attribution + Non-Commercial + ShareAlike | Low Risk for Research Prototype; must not be used for commercial deployments |
 | **IndicJR** | Open Academic / CC BY 4.0 | Unknown (Requires final mirror check) | Yes | Yes | Attribution | Low Risk (Research evaluation) |
+| **HOLD-Telugu** | CC BY 4.0 | Yes | Yes | Yes | Attribution | Zero Risk (Standard academic open access) |
+| **Telugu-English Abusive (2025)** | Open Academic | Unknown (Preprint terms) | Yes | Yes | Attribution | Low Risk (Research use) |
+| **Cleanword** | MIT | Yes | Yes | Yes | Attribution / Permissive | Zero Risk |
+| **Telugu UKC Lexicon** | Open Academic | Check DataScientia terms | Yes | Yes | Attribution | Low Risk (Academic research) |
 | **MILU** | CC BY 4.0 (Gated HF) | Yes | Yes | Yes | Attribution + Gated Registration | Low Risk (Requires HuggingFace account acceptance) |
 | **IndicGenBench** | Mixed (CC BY-SA / CC BY-NC-SA / MIT) | Partial (CrossSum is Non-Commercial) | Yes | Yes | Respective license terms | Low Risk for Research |
 | **Aksharantar** | CC-BY / CC-0 | Yes | Yes | Yes | Attribution for manual portion | Zero Risk |
@@ -273,7 +319,7 @@ This document provides a comprehensive, primary-source-verified dataset inventor
 | :--- | :--- | :--- | :--- | :--- |
 | **1. Language / Script / Code-Mix Detection** | Dakshina (Native + Romanized), Sampled Code-Mix | Aksharantar, DravidianCodeMix | `SAGE-Safety-TE` (tri-form metadata) | Needs labeled Native, Romanized, English, and Code-Mixed text. |
 | **2. Morphology-Aware Tokenization** | FLORES-200, UD_Telugu-MTG, Dakshina, IndicCorp v2 (sample) | Aksharantar | `SAGE-Morph-TE` (Boundary validation suite) | Requires clean parallel sentences (FLORES), cross-script pairs (Dakshina), gold morphological tags (UD_Telugu), and vocabulary scale (IndicCorp). |
-| **3. Context-Aware Safety Guardrail** | IndicJR | DravidianCodeMix | **`SAGE-Safety-TE` (ESSENTIAL)** | Public datasets lack matched 3-way inputs and benign sensitive control samples. |
+| **3. Context-Aware Safety Guardrail** | IndicJR, HOLD-Telugu | DravidianCodeMix, Sandalphon, Telugu-English Abusive (2025), Cleanword, Telugu UKC | **`SAGE-Safety-TE` (ESSENTIAL)** | Public datasets lack matched 3-way inputs and benign sensitive control samples. |
 | **4. Evidence Retrieval (RAG)** | IndicQA (baseline) | SANSKRITI (topics) | **`SAGE-Corpus-TE` (ESSENTIAL)** | Needs a curated, authoritative Telugu passage corpus with verifiable ground-truth facts. |
 | **5. LLM / SLM Generation** | FLORES-200 (prompting), IndicQA | MILU, IndicGenBench | `SAGE-Factuality-TE` (prompts) | Standard Indic generation capabilities benchmarking. |
 | **6. Atomic Claim Extraction** | None (public datasets lack claim annotations) | None | **`SAGE-Factuality-TE` (ESSENTIAL)** | No Telugu dataset contains atomic propositional claim annotations. |

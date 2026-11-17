@@ -1,0 +1,1025 @@
+[
+  {
+    "query_id": "Q_DEV_001_NAT",
+    "query_text": "చార్మినార్‌ను ఏ సంవత్సరంలో మరియు ఎవరు నిర్మించారు?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_001",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_001"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_001#c0001",
+      "TE_DOC_001#c0002",
+      "TE_DOC_001#c0000"
+    ],
+    "target_doc": "TE_DOC_001",
+    "primary_chunk": "TE_DOC_001#c0001",
+    "essential_keywords": [
+      "1591",
+      "కులీ కుతుబ్ షా",
+      "మహమ్మద్ కులీ"
+    ],
+    "essential_fact_en": "Built in 1591 by Muhammad Quli Qutb Shah",
+    "linked_verif_id": "V_DEV_001",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_001_ROM",
+    "query_text": "charminar nu ye samvatsaram lo mariyu evaru nirmincharu?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_001",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_001"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_001#c0001",
+      "TE_DOC_001#c0002",
+      "TE_DOC_001#c0000"
+    ],
+    "target_doc": "TE_DOC_001",
+    "primary_chunk": "TE_DOC_001#c0001",
+    "essential_keywords": [
+      "1591",
+      "కులీ కుతుబ్ షా",
+      "మహమ్మద్ కులీ"
+    ],
+    "essential_fact_en": "Built in 1591 by Muhammad Quli Qutb Shah",
+    "linked_verif_id": "V_DEV_001",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_001_MIX",
+    "query_text": "Charminar construction ye year lo evari dwara jarigindi?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_001",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_001"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_001#c0001",
+      "TE_DOC_001#c0002",
+      "TE_DOC_001#c0000"
+    ],
+    "target_doc": "TE_DOC_001",
+    "primary_chunk": "TE_DOC_001#c0001",
+    "essential_keywords": [
+      "1591",
+      "కులీ కుతుబ్ షా",
+      "మహమ్మద్ కులీ"
+    ],
+    "essential_fact_en": "Built in 1591 by Muhammad Quli Qutb Shah",
+    "linked_verif_id": "V_DEV_001",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_002_NAT",
+    "query_text": "నాగార్జున సాగర్ ఆనకట్టకు శంకుస్థాపన చేసిన భారత ప్రధాని ఎవరు?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_002",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_004"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_004#c0001",
+      "TE_DOC_004#c0000",
+      "TE_DOC_004#c0002"
+    ],
+    "target_doc": "TE_DOC_004",
+    "primary_chunk": "TE_DOC_004#c0001",
+    "essential_keywords": [
+      "నెహ్రూ",
+      "జవహర్‌లాల్ నెహ్రూ",
+      "1955",
+      "డిసెంబరు 10"
+    ],
+    "essential_fact_en": "Foundation laid by Prime Minister Jawaharlal Nehru on 10 Dec 1955",
+    "linked_verif_id": "V_DEV_002",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_002_ROM",
+    "query_text": "nagarjuna sagar aanakattaku shankhusthapana chesina bharata pradhani evaru?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_002",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_004"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_004#c0001",
+      "TE_DOC_004#c0000",
+      "TE_DOC_004#c0002"
+    ],
+    "target_doc": "TE_DOC_004",
+    "primary_chunk": "TE_DOC_004#c0001",
+    "essential_keywords": [
+      "నెహ్రూ",
+      "జవహర్‌లాల్ నెహ్రూ",
+      "1955",
+      "డిసెంబరు 10"
+    ],
+    "essential_fact_en": "Foundation laid by Prime Minister Jawaharlal Nehru on 10 Dec 1955",
+    "linked_verif_id": "V_DEV_002",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_002_MIX",
+    "query_text": "Nagarjuna Sagar dam ki foundation stone vesina Prime Minister evaru?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_002",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_004"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_004#c0001",
+      "TE_DOC_004#c0000",
+      "TE_DOC_004#c0002"
+    ],
+    "target_doc": "TE_DOC_004",
+    "primary_chunk": "TE_DOC_004#c0001",
+    "essential_keywords": [
+      "నెహ్రూ",
+      "జవహర్‌లాల్ నెహ్రూ",
+      "1955",
+      "డిసెంబరు 10"
+    ],
+    "essential_fact_en": "Foundation laid by Prime Minister Jawaharlal Nehru on 10 Dec 1955",
+    "linked_verif_id": "V_DEV_002",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_003_NAT",
+    "query_text": "సాలార్ జంగ్ మ్యూజియంలోని వీల్డ్ రెబెక్కా శిల్పాన్ని ఎవరు రూపొందించారు?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_003",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_007"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_007#c0002",
+      "TE_DOC_007#c0001",
+      "TE_DOC_007#c0000"
+    ],
+    "target_doc": "TE_DOC_007",
+    "primary_chunk": "TE_DOC_007#c0002",
+    "essential_keywords": [
+      "బెంజోని",
+      "గియోవన్నీ బెంజోని",
+      "1876",
+      "Benzoni"
+    ],
+    "essential_fact_en": "Sculpted by Italian sculptor Giovanni Maria Benzoni in 1876",
+    "linked_verif_id": "V_DEV_003",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_003_ROM",
+    "query_text": "salar jung museum loni veiled rebecca shilpanni evaru roopondincharu?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_003",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_007"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_007#c0002",
+      "TE_DOC_007#c0001",
+      "TE_DOC_007#c0000"
+    ],
+    "target_doc": "TE_DOC_007",
+    "primary_chunk": "TE_DOC_007#c0002",
+    "essential_keywords": [
+      "బెంజోని",
+      "గియోవన్నీ బెంజోని",
+      "1876",
+      "Benzoni"
+    ],
+    "essential_fact_en": "Sculpted by Italian sculptor Giovanni Maria Benzoni in 1876",
+    "linked_verif_id": "V_DEV_003",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_003_MIX",
+    "query_text": "Salar Jung Museum lo unna Veiled Rebecca sculpture ni evaru design chesaru?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_003",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_007"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_007#c0002",
+      "TE_DOC_007#c0001",
+      "TE_DOC_007#c0000"
+    ],
+    "target_doc": "TE_DOC_007",
+    "primary_chunk": "TE_DOC_007#c0002",
+    "essential_keywords": [
+      "బెంజోని",
+      "గియోవన్నీ బెంజోని",
+      "1876",
+      "Benzoni"
+    ],
+    "essential_fact_en": "Sculpted by Italian sculptor Giovanni Maria Benzoni in 1876",
+    "linked_verif_id": "V_DEV_003",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_004_NAT",
+    "query_text": "తెలంగాణ ప్రభుత్వం చెరువుల పునరుద్ధరణ కోసం చేపట్టిన ప్రాజెక్టు ఏది?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_004",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_010"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_010#c0002",
+      "TE_DOC_010#c0000",
+      "TE_DOC_010#c0001"
+    ],
+    "target_doc": "TE_DOC_010",
+    "primary_chunk": "TE_DOC_010#c0002",
+    "essential_keywords": [
+      "మిషన్ కాకతీయ",
+      "కాకతీయ",
+      "చెరువుల"
+    ],
+    "essential_fact_en": "Mission Kakatiya launched for restoring irrigation tanks",
+    "linked_verif_id": "V_DEV_004",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_004_ROM",
+    "query_text": "telangana prabhutvam cheruvula punaruddharana kosam chepattina project edi?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_004",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_010"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_010#c0002",
+      "TE_DOC_010#c0000",
+      "TE_DOC_010#c0001"
+    ],
+    "target_doc": "TE_DOC_010",
+    "primary_chunk": "TE_DOC_010#c0002",
+    "essential_keywords": [
+      "మిషన్ కాకతీయ",
+      "కాకతీయ",
+      "చెరువుల"
+    ],
+    "essential_fact_en": "Mission Kakatiya launched for restoring irrigation tanks",
+    "linked_verif_id": "V_DEV_004",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_004_MIX",
+    "query_text": "Telangana government historical tanks restore cheyadaniki start chesina project enti?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_004",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_010"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_010#c0002",
+      "TE_DOC_010#c0000",
+      "TE_DOC_010#c0001"
+    ],
+    "target_doc": "TE_DOC_010",
+    "primary_chunk": "TE_DOC_010#c0002",
+    "essential_keywords": [
+      "మిషన్ కాకతీయ",
+      "కాకతీయ",
+      "చెరువుల"
+    ],
+    "essential_fact_en": "Mission Kakatiya launched for restoring irrigation tanks",
+    "linked_verif_id": "V_DEV_004",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_005_NAT",
+    "query_text": "హైదరాబాదీ దమ్ బిర్యానీని మొఘలుల కాలంలో ఎలా తయారుచేసేవారు?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_005",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": false,
+    "relevant_document_ids": [],
+    "relevant_chunk_ids": [],
+    "target_doc": null,
+    "primary_chunk": null,
+    "essential_keywords": [],
+    "essential_fact_en": "Unanswerable - Dum Biryani preparation in Mughal era not in corpus",
+    "linked_verif_id": null,
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_005_ROM",
+    "query_text": "hyderabadi dum biryani ni moghalula kalam lo ela tayaruchesevaru?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_005",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": false,
+    "relevant_document_ids": [],
+    "relevant_chunk_ids": [],
+    "target_doc": null,
+    "primary_chunk": null,
+    "essential_keywords": [],
+    "essential_fact_en": "Unanswerable - Dum Biryani preparation in Mughal era not in corpus",
+    "linked_verif_id": null,
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_005_MIX",
+    "query_text": "Hyderabadi Dum Biryani authentic recipe and origin history enti?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_005",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": false,
+    "relevant_document_ids": [],
+    "relevant_chunk_ids": [],
+    "target_doc": null,
+    "primary_chunk": null,
+    "essential_keywords": [],
+    "essential_fact_en": "Unanswerable - Dum Biryani preparation in Mughal era not in corpus",
+    "linked_verif_id": null,
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_006_NAT",
+    "query_text": "అమరావతి బౌద్ధ స్తూపంలోని పాలరాతి శిల్పాల ప్రత్యేకత ఏమిటి?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_006",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": false,
+    "relevant_document_ids": [],
+    "relevant_chunk_ids": [],
+    "target_doc": null,
+    "primary_chunk": null,
+    "essential_keywords": [],
+    "essential_fact_en": "Unanswerable - Amaravati Buddhist stupa marble uniqueness not in corpus",
+    "linked_verif_id": null,
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_006_ROM",
+    "query_text": "amaravati bouddha stupam loni palarathi shilpala prathyekatha emiti?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_006",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": false,
+    "relevant_document_ids": [],
+    "relevant_chunk_ids": [],
+    "target_doc": null,
+    "primary_chunk": null,
+    "essential_keywords": [],
+    "essential_fact_en": "Unanswerable - Amaravati Buddhist stupa marble uniqueness not in corpus",
+    "linked_verif_id": null,
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_DEV_006_MIX",
+    "query_text": "Amaravati Buddhist Stupa lo unna marble carvings structure ela untundi?",
+    "split": "dev",
+    "query_family_id": "QF_DEV_006",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": false,
+    "relevant_document_ids": [],
+    "relevant_chunk_ids": [],
+    "target_doc": null,
+    "primary_chunk": null,
+    "essential_keywords": [],
+    "essential_fact_en": "Unanswerable - Amaravati Buddhist stupa marble uniqueness not in corpus",
+    "linked_verif_id": null,
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_001_NAT",
+    "query_text": "గోల్కొండ కోట ప్రవేశ ద్వారం వద్ద చప్పట్లు కొడితే శబ్దం ఎక్కడికి వినిపిస్తుంది?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_001",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_002"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_002#c0001",
+      "TE_DOC_002#c0000",
+      "TE_DOC_002#c0002"
+    ],
+    "target_doc": "TE_DOC_002",
+    "primary_chunk": "TE_DOC_002#c0001",
+    "essential_keywords": [
+      "బాలా హిస్సార్",
+      "బాలాహిస్సార్",
+      "Bala Hissar"
+    ],
+    "essential_fact_en": "Clapping at Fateh Darwaza entry is heard at Bala Hissar (highest point)",
+    "linked_verif_id": "V_EVAL_001",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_001_ROM",
+    "query_text": "golconda kota pravesha dwaram vadda chappatlu kodithe shabdam ekkadiki vinipistundi?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_001",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_002"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_002#c0001",
+      "TE_DOC_002#c0000",
+      "TE_DOC_002#c0002"
+    ],
+    "target_doc": "TE_DOC_002",
+    "primary_chunk": "TE_DOC_002#c0001",
+    "essential_keywords": [
+      "బాలా హిస్సార్",
+      "బాలాహిస్సార్",
+      "Bala Hissar"
+    ],
+    "essential_fact_en": "Clapping at Fateh Darwaza entry is heard at Bala Hissar (highest point)",
+    "linked_verif_id": "V_EVAL_001",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_001_MIX",
+    "query_text": "Golconda fort entrance daggara clap chesthe sound ekkadiki reach avtundi?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_001",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_002"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_002#c0001",
+      "TE_DOC_002#c0000",
+      "TE_DOC_002#c0002"
+    ],
+    "target_doc": "TE_DOC_002",
+    "primary_chunk": "TE_DOC_002#c0001",
+    "essential_keywords": [
+      "బాలా హిస్సార్",
+      "బాలాహిస్సార్",
+      "Bala Hissar"
+    ],
+    "essential_fact_en": "Clapping at Fateh Darwaza entry is heard at Bala Hissar (highest point)",
+    "linked_verif_id": "V_EVAL_001",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_002_NAT",
+    "query_text": "తెలంగాణ రాష్ట్ర అధికారిక చిహ్నంలో చేర్చబడిన కాకతీయ కట్టడం ఏది?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_002",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_003"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_003#c0002",
+      "TE_DOC_003#c0001",
+      "TE_DOC_003#c0000"
+    ],
+    "target_doc": "TE_DOC_003",
+    "primary_chunk": "TE_DOC_003#c0002",
+    "essential_keywords": [
+      "కీర్తి తోరణం",
+      "కాకతీయ కళాతోరణం",
+      "తోరణం",
+      "కళాతోరణం"
+    ],
+    "essential_fact_en": "Kakatiya Kala Thoranam / Kirti Thoranam included in official emblem of Telangana",
+    "linked_verif_id": "V_EVAL_002",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_002_ROM",
+    "query_text": "telangana rashtra adhikarika chihnam lo cherchabadina kakatiya kattadam edi?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_002",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_003"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_003#c0002",
+      "TE_DOC_003#c0001",
+      "TE_DOC_003#c0000"
+    ],
+    "target_doc": "TE_DOC_003",
+    "primary_chunk": "TE_DOC_003#c0002",
+    "essential_keywords": [
+      "కీర్తి తోరణం",
+      "కాకతీయ కళాతోరణం",
+      "తోరణం",
+      "కళాతోరణం"
+    ],
+    "essential_fact_en": "Kakatiya Kala Thoranam / Kirti Thoranam included in official emblem of Telangana",
+    "linked_verif_id": "V_EVAL_002",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_002_MIX",
+    "query_text": "Telangana state official emblem lo include chesina Kakatiya monument edi?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_002",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_003"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_003#c0002",
+      "TE_DOC_003#c0001",
+      "TE_DOC_003#c0000"
+    ],
+    "target_doc": "TE_DOC_003",
+    "primary_chunk": "TE_DOC_003#c0002",
+    "essential_keywords": [
+      "కీర్తి తోరణం",
+      "కాకతీయ కళాతోరణం",
+      "తోరణం",
+      "కళాతోరణం"
+    ],
+    "essential_fact_en": "Kakatiya Kala Thoranam / Kirti Thoranam included in official emblem of Telangana",
+    "linked_verif_id": "V_EVAL_002",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_003_NAT",
+    "query_text": "రామప్ప దేవాలయానికి ఏ సంవత్సరంలో యునెస్కో ప్రపంచ వారసత్వ హోదా లభించింది?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_003",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_005"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_005#c0002",
+      "TE_DOC_005#c0000",
+      "TE_DOC_005#c0001"
+    ],
+    "target_doc": "TE_DOC_005",
+    "primary_chunk": "TE_DOC_005#c0002",
+    "essential_keywords": [
+      "2021",
+      "యునెస్కో",
+      "ప్రపంచ వారసత్వ"
+    ],
+    "essential_fact_en": "UNESCO World Heritage site status recognized in July 2021",
+    "linked_verif_id": "V_EVAL_003",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_003_ROM",
+    "query_text": "ramappa devalayaniki ye samvatsaram lo unesco prapancha varasathva hoda labhinchindi?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_003",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_005"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_005#c0002",
+      "TE_DOC_005#c0000",
+      "TE_DOC_005#c0001"
+    ],
+    "target_doc": "TE_DOC_005",
+    "primary_chunk": "TE_DOC_005#c0002",
+    "essential_keywords": [
+      "2021",
+      "యునెస్కో",
+      "ప్రపంచ వారసత్వ"
+    ],
+    "essential_fact_en": "UNESCO World Heritage site status recognized in July 2021",
+    "linked_verif_id": "V_EVAL_003",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_003_MIX",
+    "query_text": "Ramappa temple ki UNESCO World Heritage site tag ye year lo vachindi?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_003",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_005"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_005#c0002",
+      "TE_DOC_005#c0000",
+      "TE_DOC_005#c0001"
+    ],
+    "target_doc": "TE_DOC_005",
+    "primary_chunk": "TE_DOC_005#c0002",
+    "essential_keywords": [
+      "2021",
+      "యునెస్కో",
+      "ప్రపంచ వారసత్వ"
+    ],
+    "essential_fact_en": "UNESCO World Heritage site status recognized in July 2021",
+    "linked_verif_id": "V_EVAL_003",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_004_NAT",
+    "query_text": "తొలి పూర్తి తెలుగు శిలాశాసనంగా గుర్తించబడిన కలమళ్ళ శాసనం ఏ కాలం నాటిది?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_004",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_006"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_006#c0001",
+      "TE_DOC_006#c0000",
+      "TE_DOC_006#c0002"
+    ],
+    "target_doc": "TE_DOC_006",
+    "primary_chunk": "TE_DOC_006#c0001",
+    "essential_keywords": [
+      "575",
+      "6వ శతాబ్దం",
+      "రేనాటి చోళులు"
+    ],
+    "essential_fact_en": "Kalamalla inscription dates to 575 CE (6th century, Renati Cholas)",
+    "linked_verif_id": "V_EVAL_004",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_004_ROM",
+    "query_text": "tholi poorthi telugu shilashasanamga gurtinchabadina kalamalla shasanam ye kalam natidi?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_004",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_006"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_006#c0001",
+      "TE_DOC_006#c0000",
+      "TE_DOC_006#c0002"
+    ],
+    "target_doc": "TE_DOC_006",
+    "primary_chunk": "TE_DOC_006#c0001",
+    "essential_keywords": [
+      "575",
+      "6వ శతాబ్దం",
+      "రేనాటి చోళులు"
+    ],
+    "essential_fact_en": "Kalamalla inscription dates to 575 CE (6th century, Renati Cholas)",
+    "linked_verif_id": "V_EVAL_004",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_004_MIX",
+    "query_text": "First full Telugu stone inscription Kalamalla shasanam ye period ki chendindi?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_004",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_006"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_006#c0001",
+      "TE_DOC_006#c0000",
+      "TE_DOC_006#c0002"
+    ],
+    "target_doc": "TE_DOC_006",
+    "primary_chunk": "TE_DOC_006#c0001",
+    "essential_keywords": [
+      "575",
+      "6వ శతాబ్దం",
+      "రేనాటి చోళులు"
+    ],
+    "essential_fact_en": "Kalamalla inscription dates to 575 CE (6th century, Renati Cholas)",
+    "linked_verif_id": "V_EVAL_004",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_005_NAT",
+    "query_text": "భూదాన్ పోచంపల్లి ఇక్కత్ చేనేత వస్త్రాలకు భౌగోళిక గుర్తింపు (జీఐ ట్యాగ్) ఎప్పుడు లభించింది?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_005",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_008"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_008#c0002",
+      "TE_DOC_008#c0001",
+      "TE_DOC_008#c0000"
+    ],
+    "target_doc": "TE_DOC_008",
+    "primary_chunk": "TE_DOC_008#c0002",
+    "essential_keywords": [
+      "2004",
+      "జీఐ ట్యాగ్",
+      "భౌగోళిక గుర్తింపు"
+    ],
+    "essential_fact_en": "Pochampally Ikat handloom textiles received GI tag in 2004",
+    "linked_verif_id": "V_EVAL_005",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_005_ROM",
+    "query_text": "bhoodan pochampalli ikkat chenetha vastralaku bhaugolika gurtimpu gi tag eppudu labhinchindi?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_005",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_008"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_008#c0002",
+      "TE_DOC_008#c0001",
+      "TE_DOC_008#c0000"
+    ],
+    "target_doc": "TE_DOC_008",
+    "primary_chunk": "TE_DOC_008#c0002",
+    "essential_keywords": [
+      "2004",
+      "జీఐ ట్యాగ్",
+      "భౌగోళిక గుర్తింపు"
+    ],
+    "essential_fact_en": "Pochampally Ikat handloom textiles received GI tag in 2004",
+    "linked_verif_id": "V_EVAL_005",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_005_MIX",
+    "query_text": "Pochampally Ikat handloom fabrics ki GI tag eppudu announce chesaru?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_005",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_008"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_008#c0002",
+      "TE_DOC_008#c0001",
+      "TE_DOC_008#c0000"
+    ],
+    "target_doc": "TE_DOC_008",
+    "primary_chunk": "TE_DOC_008#c0002",
+    "essential_keywords": [
+      "2004",
+      "జీఐ ట్యాగ్",
+      "భౌగోళిక గుర్తింపు"
+    ],
+    "essential_fact_en": "Pochampally Ikat handloom textiles received GI tag in 2004",
+    "linked_verif_id": "V_EVAL_005",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_006_NAT",
+    "query_text": "తిరుమల ఆలయ గర్భగుడిపై ఉన్న బంగారు విమాన గోపురాన్ని ఏమని పిలుస్తారు?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_006",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_009"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_009#c0002",
+      "TE_DOC_009#c0000",
+      "TE_DOC_009#c0001"
+    ],
+    "target_doc": "TE_DOC_009",
+    "primary_chunk": "TE_DOC_009#c0002",
+    "essential_keywords": [
+      "ఆనంద నిలయం",
+      "ఆనందనిలయం",
+      "Ananda Nilayam"
+    ],
+    "essential_fact_en": "Gold vimana gopuram over the sanctum sanctorum is called Ananda Nilayam",
+    "linked_verif_id": "V_EVAL_006",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_006_ROM",
+    "query_text": "tirumala aalaya garbhagudipai unna bangaru vimana gopuranni emani pilustharu?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_006",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_009"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_009#c0002",
+      "TE_DOC_009#c0000",
+      "TE_DOC_009#c0001"
+    ],
+    "target_doc": "TE_DOC_009",
+    "primary_chunk": "TE_DOC_009#c0002",
+    "essential_keywords": [
+      "ఆనంద నిలయం",
+      "ఆనందనిలయం",
+      "Ananda Nilayam"
+    ],
+    "essential_fact_en": "Gold vimana gopuram over the sanctum sanctorum is called Ananda Nilayam",
+    "linked_verif_id": "V_EVAL_006",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_006_MIX",
+    "query_text": "Tirumala temple sanctum sanctorum gold tower ni em ani call chestaru?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_006",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": true,
+    "relevant_document_ids": [
+      "TE_DOC_009"
+    ],
+    "relevant_chunk_ids": [
+      "TE_DOC_009#c0002",
+      "TE_DOC_009#c0000",
+      "TE_DOC_009#c0001"
+    ],
+    "target_doc": "TE_DOC_009",
+    "primary_chunk": "TE_DOC_009#c0002",
+    "essential_keywords": [
+      "ఆనంద నిలయం",
+      "ఆనందనిలయం",
+      "Ananda Nilayam"
+    ],
+    "essential_fact_en": "Gold vimana gopuram over the sanctum sanctorum is called Ananda Nilayam",
+    "linked_verif_id": "V_EVAL_006",
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_007_NAT",
+    "query_text": "కూచిపూడి నృత్యం ఆంధ్రప్రదేశ్ లోని ఏ గ్రామంలో పుట్టింది?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_007",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": false,
+    "relevant_document_ids": [],
+    "relevant_chunk_ids": [],
+    "target_doc": null,
+    "primary_chunk": null,
+    "essential_keywords": [],
+    "essential_fact_en": "Unanswerable - Kuchipudi dance village origin not in corpus",
+    "linked_verif_id": null,
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_007_ROM",
+    "query_text": "kuchipudi nruthyam andhra pradesh loni ye gramam lo puttindi?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_007",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": false,
+    "relevant_document_ids": [],
+    "relevant_chunk_ids": [],
+    "target_doc": null,
+    "primary_chunk": null,
+    "essential_keywords": [],
+    "essential_fact_en": "Unanswerable - Kuchipudi dance village origin not in corpus",
+    "linked_verif_id": null,
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_007_MIX",
+    "query_text": "Kuchipudi classical dance form Andhra Pradesh lo ekkada originate aindi?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_007",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": false,
+    "relevant_document_ids": [],
+    "relevant_chunk_ids": [],
+    "target_doc": null,
+    "primary_chunk": null,
+    "essential_keywords": [],
+    "essential_fact_en": "Unanswerable - Kuchipudi dance village origin not in corpus",
+    "linked_verif_id": null,
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_008_NAT",
+    "query_text": "కాళేశ్వరం ఎత్తిపోతల పథకంలో ఎన్ని బ్యారేజీలు నిర్మించారు?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_008",
+    "modality": "native",
+    "language_category": "TELUGU_NATIVE",
+    "is_answerable": false,
+    "relevant_document_ids": [],
+    "relevant_chunk_ids": [],
+    "target_doc": null,
+    "primary_chunk": null,
+    "essential_keywords": [],
+    "essential_fact_en": "Unanswerable - Kaleshwaram barrage count not in corpus",
+    "linked_verif_id": null,
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_008_ROM",
+    "query_text": "kaleshwaram etthipothala pathakam lo enni barrage lu nirmincharu?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_008",
+    "modality": "romanized",
+    "language_category": "ROMANIZED_TELUGU",
+    "is_answerable": false,
+    "relevant_document_ids": [],
+    "relevant_chunk_ids": [],
+    "target_doc": null,
+    "primary_chunk": null,
+    "essential_keywords": [],
+    "essential_fact_en": "Unanswerable - Kaleshwaram barrage count not in corpus",
+    "linked_verif_id": null,
+    "annotation_status": "pending"
+  },
+  {
+    "query_id": "Q_EVAL_008_MIX",
+    "query_text": "Kaleshwaram Lift Irrigation project lo total enni barrages construct chesaru?",
+    "split": "eval",
+    "query_family_id": "QF_EVAL_008",
+    "modality": "code_mixed",
+    "language_category": "TELUGU_ENGLISH_CODE_MIXED",
+    "is_answerable": false,
+    "relevant_document_ids": [],
+    "relevant_chunk_ids": [],
+    "target_doc": null,
+    "primary_chunk": null,
+    "essential_keywords": [],
+    "essential_fact_en": "Unanswerable - Kaleshwaram barrage count not in corpus",
+    "linked_verif_id": null,
+    "annotation_status": "pending"
+  }
+]

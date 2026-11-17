@@ -1,0 +1,91 @@
+<USER_REQUEST>
+# SAGE-Indic — EXP-2E-02: Reproducible End-to-End Grounded Factuality Evaluation
+
+## Mission
+
+Execute the first controlled end-to-end evaluation of SAGE-Indic, connecting the existing retrieval, generation, claim-extraction, verification, provenance, and answer-eligibility components.
+
+The research objective is to measure whether SAGE-Indic can answer factual questions in:
+1. Native Telugu (`te`)
+2. Romanized Telugu (`te-Latn`)
+3. Telugu-English code-mixed text (`te-en`)
+
+using retrieved evidence while reducing unsupported factual assertions.
+
+This is a research experiment, not a demo. The objective is to produce reproducible measurements, inspectable predictions, error analyses, and appropriately qualified findings that may support a research paper.
+
+Do not ask for approval between implementation steps. Complete all feasible work within the existing repository. If a required model, credential, dependency, or dataset is unavailable, document the blocker precisely and continue with the portions that can be evaluated honestly.
+
+Do not fabricate results, reference answers, annotations, model responses, provider execution, citations, or statistical significance.
+
+---
+
+## 1. Inspect the existing experiment and implementation
+
+Inspect the current implementations and specifications for:
+
+- `src/sage_indic/generation/`
+- `src/sage_indic/verification/`
+- `src/sage_indic/rag/`
+- Existing retrieval experiment scripts and result artifacts
+- Existing verification benchmark fixtures and evaluation scripts
+- `EXPERIMENT_LEDGER.md`
+- `OPEN_ISSUES.md`
+- `progress.md`
+- `docs/PRD.md`
+- `docs/phase2d_expansion_plan.md`, if present
+- Any existing EXP-2E-02 design or issue entries
+
+Reuse the existing interfaces and datasets where appropriate.
+
+Before running the experiment, verify the actual behavior of `ExternalAPIProvider`, `GenerationAdapter`, `PromptComposer`, `verify_draft_answer`, `RelationAwareClaimVerifier`, and the answer-eligibility logic.
+
+In particular, establish:
+<truncated 13581 bytes>
+eal generation was actually executed.
+
+A passing test suite must not be represented as evidence of factual correctness.
+
+## 12. Final report format
+
+Finish with these sections:
+
+1. Execution status: real provider, model identifier, number of attempted/completed/failed queries.
+2. Dataset and annotation status.
+3. Exact experiment conditions.
+4. Aggregate metrics with counts and denominators.
+5. Results by input modality.
+6. Baseline and ablation comparisons.
+7. False `SUPPORTED` and unsupported-generation analysis.
+8. Citation validity versus actual evidence support.
+9. Operational performance and cost, where available.
+10. Tests and reproducibility.
+11. Threats to validity and unresolved issues.
+12. Research-paper readiness assessment.
+
+For every reported number, identify its source artifact and whether it was independently labeled, automatically computed, or manually reviewed.
+
+Conclude with three explicit decisions:
+- What the experiment demonstrates.
+- What it does not demonstrate.
+- Which exact claims, if any, are defensible in a research paper today.
+
+Do not claim publication readiness merely because the pipeline runs or metrics improve. Do not invent successful model execution if credentials or provider access are unavailable.
+
+Execute the experiment now and deliver the complete report.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-16T16:28:48+05:30.
+
+The user's current state is as follows:
+Active Document: d:\Sage-Indic\experiments\run_verification_experiment.py (LANGUAGE_PYTHON)
+Cursor is on line: 1
+Other open documents:
+- d:\Sage-Indic\OPEN_ISSUES.md (LANGUAGE_MARKDOWN)
+- d:\Sage-Indic\src\sage_indic\verification\types.py (LANGUAGE_PYTHON)
+- d:\Sage-Indic\docs\verification_error_analysis.md (LANGUAGE_MARKDOWN)
+- d:\Sage-Indic\tests\test_generation_adapter.py (LANGUAGE_PYTHON)
+- d:\Sage-Indic\src\sage_indic\generation\adapter.py (LANGUAGE_PYTHON)
+Running terminal commands:
+- opencode  (in d:\Sage-Indic, running for 46h55m10s)
+</ADDITIONAL_METADATA>

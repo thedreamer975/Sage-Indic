@@ -1,0 +1,386 @@
+<USER_REQUEST>
+# SAGE-Indic — EXP-2E-02: Reproducible End-to-End Grounded Factuality Evaluation
+
+## Mission
+
+Execute the first controlled end-to-end evaluation of SAGE-Indic, connecting the existing retrieval, generation, claim-extraction, verification, provenance, and answer-eligibility components.
+
+The research objective is to measure whether SAGE-Indic can answer factual questions in:
+1. Native Telugu (`te`)
+2. Romanized Telugu (`te-Latn`)
+3. Telugu-English code-mixed text (`te-en`)
+
+using retrieved evidence while reducing unsupported factual assertions.
+
+This is a research experiment, not a demo. The objective is to produce reproducible measurements, inspectable predictions, error analyses, and appropriately qualified findings that may support a research paper.
+
+Do not ask for approval between implementation steps. Complete all feasible work within the existing repository. If a required model, credential, dependency, or dataset is unavailable, document the blocker precisely and continue with the portions that can be evaluated honestly.
+
+Do not fabricate results, reference answers, annotations, model responses, provider execution, citations, or statistical significance.
+
+---
+
+## 1. Inspect the existing experiment and implementation
+
+Inspect the current implementations and specifications for:
+
+- `src/sage_indic/generation/`
+- `src/sage_indic/verification/`
+- `src/sage_indic/rag/`
+- Existing retrieval experiment scripts and result artifacts
+- Existing verification benchmark fixtures and evaluation scripts
+- `EXPERIMENT_LEDGER.md`
+- `OPEN_ISSUES.md`
+- `progress.md`
+- `docs/PRD.md`
+- `docs/phase2d_expansion_plan.md`, if present
+- Any existing EXP-2E-02 design or issue entries
+
+Reuse the existing interfaces and datasets where appropriate.
+
+Before running the experiment, verify the actual behavior of `ExternalAPIProvider`, `GenerationAdapter`, `PromptComposer`, `verify_draft_answer`, `RelationAwareClaimVerifier`, and the answer-eligibility logic.
+
+In particular, establish:
+
+- Whether the provider can actually make a real model request.
+- How model responses are parsed and validated.
+- Whether candidate claims are genuinely extracted or simply derived from sentence boundaries.
+- Whether citation validation checks only passage IDs or also verifies claim-to-evidence support.
+- Whether insufficient evidence causes a caveat, abstention, or another outcome.
+- Whether exceptions or invalid model responses can accidentally produce an eligible answer.
+- Whether provenance survives the entire pipeline.
+- Whether any current benchmark judgments were generated programmatically rather than independently annotated.
+
+Do not assume that passing mock tests demonstrates real-provider functionality.
+
+Record any integration defects discovered and fix only those necessary for a valid experiment. Keep unrelated frozen baselines unchanged.
+
+## 2. Freeze the experiment configuration
+
+Create a versioned configuration file for EXP-2E-02.
+
+Record:
+- Experiment ID and date.
+- Git commit hash, or explicitly state that no Git commit is available.
+- Python version, operating environment, dependency versions, and relevant configuration.
+- Corpus, chunk, query, qrels, and benchmark file hashes.
+- Retrieval method and its parameters.
+- Model provider, exact model identifier/version if available, generation parameters, timeout, and retry settings.
+- Prompt template version.
+- Claim verifier and version.
+- Maximum evidence passages and token/context limits.
+- Random seeds wherever applicable.
+- Any unavailable or unrecorded configuration values.
+
+Never record API keys, tokens, or other credentials in experiment artifacts or logs.
+
+Use one fixed generation configuration for paired comparisons. Do not silently change prompts, model versions, retrieval parameters, or evaluation rules partway through the run.
+
+If a model alias does not identify an immutable version, document that limitation.
+
+## 3. Establish a valid evaluation dataset
+
+Start by inspecting the existing retrieval pilot of 42 queries, its answerability labels, relevance judgments, and the separate 48-example verification benchmark.
+
+Do not automatically treat these datasets as one benchmark. Establish which records can validly be linked and what ground truth is available for each.
+
+Create or assemble a versioned end-to-end evaluation manifest containing, wherever possible:
+
+- Stable query ID.
+- Original query text.
+- Language/script modality.
+- Answerability label.
+- Relevant evidence passage IDs.
+- Gold relevance judgments and their provenance.
+- Reference answer or essential answer facts.
+- Independently labeled atomic factual claims.
+- Expected verification outcome where a valid gold label exists.
+- Topic/document split.
+- Annotation status and annotator provenance.
+
+Do not generate reference answers and then describe them as independent ground truth.
+
+Where reliable reference answers or claim labels are missing, label those fields as missing and exclude the corresponding metric from the claims it cannot support.
+
+Keep development data separate from held-out evaluation data. Never tune prompts, decision thresholds, retrieval weights, or verifier rules against the held-out results.
+
+The current pilot is small and has single-annotator retrieval judgments. Report that limitation explicitly. Do not imply that 42 queries or 48 diagnostic verification cases establish broad Telugu-language generalization.
+
+If an independently reviewed evaluation set is unavailable, run a pilot with the available data and identify the minimum additional annotation required for stronger conclusions.
+
+## 4. Execute the real generation pipeline
+
+First determine whether a real provider is configured and operational.
+
+Use the existing provider interface. Prefer a documented, reproducible model configuration already supported by the repository. Check local model availability before assuming an external API is necessary.
+
+If external credentials are missing:
+- Do not request or log secrets.
+- Do not silently substitute `MockGenerationProvider`.
+- Do not label mock responses as real-model results.
+- Complete offline integration tests and report real-model evaluation as blocked.
+
+For every eligible query, execute the complete pipeline:
+
+1. Accept the original query.
+2. Apply the existing language/script handling without destroying the original input.
+3. Retrieve evidence using the frozen retrieval configuration.
+4. Record all retrieved passages, ranks, scores where available, source IDs, hashes, and offsets.
+5. Compose the evidence-grounded prompt.
+6. Generate an answer using the configured real provider.
+7. Validate the response schema and citation IDs.
+8. Extract candidate factual claims using the actual implementation.
+9. Verify claims independently against the supplied evidence.
+10. Compute the final answer-eligibility decision.
+11. Persist the raw response, normalized output, claim records, verification outcomes, citations, timings, and errors.
+
+Use deterministic mock responses only for integration and failure-path tests, not for the real-model factuality result table.
+
+Cache or persist completed provider responses so that evaluation can be reproduced without repeated requests. Do not rerun successful calls unnecessarily.
+
+Record timeouts, rate limits, provider failures, malformed responses, and retries. Do not silently drop failed queries from the denominator.
+
+## 5. Run controlled comparisons
+
+Use the same eligible queries, generator model, prompt policy, and evaluation definitions wherever possible.
+
+At minimum, compare these conditions if the existing interfaces support them:
+
+**Condition A — Existing SAGE-Indic pipeline**
+- Frozen chosen retrieval configuration.
+- Evidence-grounded generation.
+- Current claim extraction.
+- `RelationAwareClaimVerifier`.
+- Existing answer-eligibility policy.
+
+**Condition B — Original verification baseline**
+- Same generated drafts and evidence as Condition A.
+- Substitute the frozen `LinguisticClaimVerifier` for the relation-aware verifier.
+- Measure the effect of verification strategy without changing generation.
+
+**Condition C — Retrieval comparison**
+- Same queries and generator configuration.
+- Compare a justified lexical baseline with the chosen normalized or cross-script retrieval configuration.
+- Keep evidence limits and prompt templates fixed.
+
+**Condition D — Retrieval/evidence ablation**
+- If safe and meaningful, evaluate generation with no retrieved evidence or a controlled evidence ablation on a separate research condition.
+- Clearly label this as an ablation, not as a valid grounded-answer system.
+- Never expose unsupported outputs as verified answers.
+
+Do not force all four conditions if the current interfaces cannot support a valid comparison. Implement the feasible conditions and document the rest as blocked.
+
+The most important paired comparison is Condition A versus Condition B using identical drafts and evidence. This isolates the effect of the verifier more cleanly than comparing independently generated answers.
+
+If generation itself is compared across retrieval conditions, use the same model version, prompt template, generation settings, and evidence budget.
+
+## 6. Define and calculate metrics carefully
+
+Implement or verify the evaluation code before interpreting results.
+
+### A. End-to-end answer quality
+
+Where independent reference answers or fact annotations exist, report:
+- Answer-level correctness.
+- Essential-fact coverage/completeness.
+- Unsupported factual assertion rate.
+- Contradiction rate.
+- Abstention rate.
+- Correct abstention rate on unanswerable queries.
+- Incorrect abstention rate on answerable queries.
+
+Define each metric explicitly, including its denominator and treatment of failures.
+
+Do not use lexical similarity to a reference answer as the sole measure of factual correctness.
+
+### B. Claim-level factuality
+
+Against independently labeled claims, report:
+- Supported-claim precision and recall.
+- Contradicted-claim precision and recall.
+- Unsupported/insufficient-evidence outcomes.
+- False `SUPPORTED` count and rate.
+- Claim-level confusion matrix and macro-F1 where appropriate.
+- Results for compound or partially supported claims when sufficient examples exist.
+
+Distinguish the verifier's predicted outcome from the independent gold label.
+
+### C. Citation and provenance
+
+Report:
+- Citation identifier validity.
+- Citation coverage for factual claims.
+- Evidence entailment/support rate, only where claims and citations have been independently judged.
+- Missing citations.
+- Invalid or invented citations.
+- Citations pointing to valid but irrelevant passages.
+
+A valid source ID is not proof of entailment.
+
+### D. Retrieval
+
+Report:
+- Recall@1 and Recall@5.
+- MRR@10 and nDCG@10 where the qrels support those metrics.
+- Answerable-query coverage.
+- Retrieval behavior on unanswerable queries.
+- Results by native Telugu, Romanized Telugu, and code-mixed modality.
+
+Clearly distinguish retrieval relevance from factual support.
+
+### E. Operational behavior
+
+Report:
+- Successful end-to-end completions.
+- Provider failure and timeout counts.
+- Mean and median latency.
+- Token usage and cost, only when reliably available.
+- Results per query and aggregated results.
+
+Break down results by modality and answerability where sample sizes allow. Always show the underlying counts next to percentages.
+
+Do not report undefined metrics as zero. Explain when a metric cannot be computed.
+
+## 7. Independently review errors
+
+Generate a query-level audit artifact containing:
+
+- Query ID and modality.
+- Expected answerability.
+- Retrieved evidence and ranks.
+- Generated answer.
+- Candidate claims.
+- Citation validation.
+- Verifier outcomes and explanations.
+- Final eligibility.
+- Reference/gold judgment where available.
+- Error category.
+- Reviewer status.
+
+Classify failures, where applicable, into:
+- Retrieval miss.
+- Cross-script normalization failure.
+- Insufficient or misleading evidence.
+- Unsupported generation.
+- Contradiction.
+- Invalid citation.
+- Claim extraction failure.
+- Relation-binding failure.
+- Compound/partial-support failure.
+- Incorrect abstention.
+- Provider/infrastructure failure.
+
+Prioritize manual inspection of every false `SUPPORTED` decision and a sample of apparently correct answers. If independent review cannot be completed, clearly mark the error analysis as provisional.
+
+Do not treat the verifier's own explanation as independent proof that the verifier is correct.
+
+## 8. Statistical discipline
+
+Report counts and denominators with every percentage.
+
+For paired conditions, calculate paired differences on the same eligible queries. If appropriate for the available sample size, use a documented paired bootstrap or another justified uncertainty interval.
+
+Do not claim statistical significance when the sample is too small or the assumptions are unsupported. If uncertainty estimates are unstable, report descriptive differences and explain the limitation.
+
+Do not choose the best model, prompt, or verifier by repeatedly inspecting the held-out set. Treat the held-out set as a final evaluation.
+
+If the benchmark is too small or not independently labeled, describe the results as a pilot study and specify the data needed for confirmation.
+
+## 9. Security and failure handling
+
+Test the end-to-end behavior for:
+- Empty evidence.
+- Unanswerable queries.
+- Instruction-like text inside retrieved passages.
+- Invalid citation identifiers.
+- Malformed model responses.
+- Provider timeouts and failures.
+- Partial or missing claim extraction.
+- Contradictory evidence.
+- Evidence that mentions the right entities but does not support the relation.
+- Unsupported secondary clauses in compound answers.
+
+Retrieved text must remain untrusted data. Do not claim comprehensive prompt-injection immunity from regex filtering or mock-provider tests.
+
+Ensure a failed provider call or invalid output cannot accidentally become an eligible, verified answer.
+
+## 10. Required artifacts
+
+Create a dedicated, versioned directory such as `experiments/results/exp_2e_02/`, following existing repository conventions.
+
+Include:
+
+1. Experiment configuration and manifest.
+2. Dataset inventory and hash report.
+3. Exact commands and execution environment.
+4. Per-query retrieval and generation results.
+5. Per-claim verification results.
+6. Machine-readable aggregate metrics.
+7. Baseline comparison tables.
+8. Confusion matrices and modality breakdowns.
+9. Latency and provider failure report.
+10. Error analysis and limitations.
+11. A concise research-results report.
+12. Reproduction instructions.
+
+Preserve raw model outputs and historical baselines. Never overwrite earlier results. Protect credentials and avoid logging sensitive information.
+
+Update `EXPERIMENT_LEDGER.md`, `OPEN_ISSUES.md`, `progress.md`, and `docs/PRD.md` with accurate results and unresolved limitations.
+
+## 11. Tests and reproducibility
+
+Add tests for any demonstrated integration defects and for the evaluation metrics.
+
+Run:
+- Targeted generation/verification tests.
+- The complete repository test suite.
+- A small smoke test with the mock provider.
+- A real-provider smoke test only if a real provider is configured and available.
+
+Report exact pass, fail, and skip counts, warnings, commands, and whether real generation was actually executed.
+
+A passing test suite must not be represented as evidence of factual correctness.
+
+## 12. Final report format
+
+Finish with these sections:
+
+1. Execution status: real provider, model identifier, number of attempted/completed/failed queries.
+2. Dataset and annotation status.
+3. Exact experiment conditions.
+4. Aggregate metrics with counts and denominators.
+5. Results by input modality.
+6. Baseline and ablation comparisons.
+7. False `SUPPORTED` and unsupported-generation analysis.
+8. Citation validity versus actual evidence support.
+9. Operational performance and cost, where available.
+10. Tests and reproducibility.
+11. Threats to validity and unresolved issues.
+12. Research-paper readiness assessment.
+
+For every reported number, identify its source artifact and whether it was independently labeled, automatically computed, or manually reviewed.
+
+Conclude with three explicit decisions:
+- What the experiment demonstrates.
+- What it does not demonstrate.
+- Which exact claims, if any, are defensible in a research paper today.
+
+Do not claim publication readiness merely because the pipeline runs or metrics improve. Do not invent successful model execution if credentials or provider access are unavailable.
+
+Execute the experiment now and deliver the complete report.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-16T16:28:48+05:30.
+
+The user's current state is as follows:
+Active Document: d:\Sage-Indic\experiments\run_verification_experiment.py (LANGUAGE_PYTHON)
+Cursor is on line: 1
+Other open documents:
+- d:\Sage-Indic\OPEN_ISSUES.md (LANGUAGE_MARKDOWN)
+- d:\Sage-Indic\src\sage_indic\verification\types.py (LANGUAGE_PYTHON)
+- d:\Sage-Indic\docs\verification_error_analysis.md (LANGUAGE_MARKDOWN)
+- d:\Sage-Indic\tests\test_generation_adapter.py (LANGUAGE_PYTHON)
+- d:\Sage-Indic\src\sage_indic\generation\adapter.py (LANGUAGE_PYTHON)
+Running terminal commands:
+- opencode  (in d:\Sage-Indic, running for 46h55m10s)
+</ADDITIONAL_METADATA>

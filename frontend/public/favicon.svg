@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SAGE-Indic">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a7464"/>
+      <stop offset="1" stop-color="#143f37"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#g)"/>
+  <text x="32" y="45" text-anchor="middle" font-size="36" fill="#f6fbf8"
+        font-family="Noto Sans Telugu, Nirmala UI, Gautami, sans-serif">స</text>
+</svg>

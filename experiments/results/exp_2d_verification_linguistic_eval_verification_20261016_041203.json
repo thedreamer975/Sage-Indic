@@ -1,0 +1,532 @@
+{
+  "experiment_id": "exp_2d_verification_linguistic_eval_verification_20261016_041203",
+  "timestamp_utc": "2026-10-16T04:12:03.717681+00:00",
+  "dataset_path": "data\\processed\\verification\\eval_verification.jsonl",
+  "split": "eval_verification",
+  "verifier_name": "linguistic",
+  "verifier_version": "1.0.0",
+  "total_examples": 24,
+  "overall_accuracy": 0.7083,
+  "macro_f1": 0.7419,
+  "genuine_supported_recall": 0.5714,
+  "mean_latency_ms": 0.27,
+  "class_metrics": {
+    "SUPPORTED": {
+      "support": 7,
+      "true_positives": 4,
+      "false_positives": 2,
+      "false_negatives": 3,
+      "precision": 0.6667,
+      "recall": 0.5714,
+      "f1_score": 0.6154
+    },
+    "CONTRADICTED": {
+      "support": 7,
+      "true_positives": 4,
+      "false_positives": 0,
+      "false_negatives": 3,
+      "precision": 1.0,
+      "recall": 0.5714,
+      "f1_score": 0.7273
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "support": 6,
+      "true_positives": 5,
+      "false_positives": 5,
+      "false_negatives": 1,
+      "precision": 0.5,
+      "recall": 0.8333,
+      "f1_score": 0.625
+    },
+    "CONFLICTING_EVIDENCE": {
+      "support": 4,
+      "true_positives": 4,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    }
+  },
+  "confusion_matrix": {
+    "SUPPORTED": {
+      "SUPPORTED": 4,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 3,
+      "CONFLICTING_EVIDENCE": 0
+    },
+    "CONTRADICTED": {
+      "SUPPORTED": 1,
+      "CONTRADICTED": 4,
+      "INSUFFICIENT_EVIDENCE": 2,
+      "CONFLICTING_EVIDENCE": 0
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "SUPPORTED": 1,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 5,
+      "CONFLICTING_EVIDENCE": 0
+    },
+    "CONFLICTING_EVIDENCE": {
+      "SUPPORTED": 0,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "CONFLICTING_EVIDENCE": 4
+    }
+  },
+  "modality_performance": {
+    "native": {
+      "total": 14,
+      "correct": 11,
+      "accuracy": 0.7857
+    },
+    "romanized": {
+      "total": 4,
+      "correct": 2,
+      "accuracy": 0.5
+    },
+    "code_mixed": {
+      "total": 6,
+      "correct": 4,
+      "accuracy": 0.6667
+    }
+  },
+  "diagnostic_subset_performance": {
+    "relational_mismatch": {
+      "total": 2,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "partial_evidence": {
+      "total": 2,
+      "correct": 1,
+      "accuracy": 0.5
+    },
+    "direct_support": {
+      "total": 6,
+      "correct": 3,
+      "accuracy": 0.5
+    },
+    "numerical_contradiction": {
+      "total": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "polarity_contradiction": {
+      "total": 2,
+      "correct": 1,
+      "accuracy": 0.5
+    },
+    "conflicting_passages": {
+      "total": 4,
+      "correct": 4,
+      "accuracy": 1.0
+    },
+    "unrelated_evidence": {
+      "total": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "distractor_high_overlap": {
+      "total": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "adversarial_injection": {
+      "total": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    }
+  },
+  "false_supported_metrics": {
+    "count": 2,
+    "total_non_supported_ground_truth": 17,
+    "false_supported_rate": 0.1176,
+    "items": [
+      {
+        "example_id": "V_EVAL_011",
+        "diagnostic_type": "relational_mismatch",
+        "claim": "నికోలో డి కాంటి కలమళ్ళ శాసనాన్ని కనుగొన్నాడు.",
+        "gold_outcome": "CONTRADICTED",
+        "pred_outcome": "SUPPORTED",
+        "confidence": 0.8,
+        "explanation": "Substantial factual alignment: Key assertion terms ['డి', 'నికోలో', 'కాంటి'] are substantiated by evidence passage TE_DOC_006#c0002.",
+        "annotation_notes": "Relational mismatch trap: entities (Niccolo de Conti, Kalamalla inscription) appear in the article, but he did not discover the inscription (he termed Telugu 'Italian of the East')."
+      },
+      {
+        "example_id": "V_EVAL_017",
+        "diagnostic_type": "partial_evidence",
+        "claim": "సాలార్ జంగ్ మ్యూజియం మూసీ నది దక్షిణ తీరంలో ఉంది మరియు అక్కడ ప్రవేశం ఉచితం.",
+        "gold_outcome": "INSUFFICIENT_EVIDENCE",
+        "pred_outcome": "SUPPORTED",
+        "confidence": 0.8333,
+        "explanation": "Substantial factual alignment: Key assertion terms ['సాలార్', 'దక్షిణ', 'మూసీ', 'తీరంలో', 'మ్యూజియం'] are substantiated by evidence passage TE_DOC_007#c0000.",
+        "annotation_notes": "Partial evidence: Musi south bank is attested, free entry is completely ungrounded."
+      }
+    ]
+  },
+  "score_distribution_heuristic": {
+    "SUPPORTED": {
+      "count": 6,
+      "mean": 0.8377,
+      "min": 0.74,
+      "max": 0.9667
+    },
+    "CONTRADICTED": {
+      "count": 4,
+      "mean": 0.925,
+      "min": 0.85,
+      "max": 0.95
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "count": 10,
+      "mean": 0.8,
+      "min": 0.8,
+      "max": 0.8
+    },
+    "CONFLICTING_EVIDENCE": {
+      "count": 4,
+      "mean": 0.9,
+      "min": 0.9,
+      "max": 0.9
+    }
+  },
+  "records": [
+    {
+      "example_id": "V_EVAL_001",
+      "diagnostic_type": "direct_support",
+      "claim_id": "C_EVAL_001",
+      "claim_text": "క్రీస్తు శకం 575 నాటి కలమళ్ళ శాసనం తొలి పూర్తి తెలుగు శిలాశాసనం.",
+      "modality": "native",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.94,
+      "is_correct": true,
+      "explanation": "Direct factual alignment: Numbers {'575'} and key terms ['క్రీస్తు', 'నాటి', 'శాసనం', 'తొలి'] are verified in evidence passage TE_DOC_006#c0001.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_002",
+      "diagnostic_type": "direct_support",
+      "claim_id": "C_EVAL_002",
+      "claim_text": "పోచంపల్లి ఇక్కత్ చేనేత కళకు 2004 లో జీఐ ట్యాగ్ లభించింది.",
+      "modality": "native",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.9667,
+      "is_correct": true,
+      "explanation": "Direct factual alignment: Numbers {'2004'} and key terms ['ఇక్కత్', 'లభించింది', 'జీఐ', 'లో'] are verified in evidence passage TE_DOC_008#c0002.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_003",
+      "diagnostic_type": "direct_support",
+      "claim_id": "C_EVAL_003",
+      "claim_text": "Telugu bhashaku 2008 lo pracheena bhasha hoda labhinchindi.",
+      "modality": "romanized",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.74,
+      "is_correct": true,
+      "explanation": "Direct factual alignment: Numbers {'2008'} and key terms ['హోదా', 'తెలుగు'] are verified in evidence passage TE_DOC_006#c0002.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_004",
+      "diagnostic_type": "direct_support",
+      "claim_id": "C_EVAL_004",
+      "claim_text": "Tirumala devalayam Seshachalam kondalapai unnadhi.",
+      "modality": "romanized",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": false,
+      "explanation": "Evidence text does not contain sufficient overlap to verify the claim.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_005",
+      "diagnostic_type": "direct_support",
+      "claim_id": "C_EVAL_005",
+      "claim_text": "Salar Jung museum lo Veiled Rebecca marble statue undi.",
+      "modality": "code_mixed",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": false,
+      "explanation": "Evidence text does not contain sufficient overlap to verify the claim.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_006",
+      "diagnostic_type": "direct_support",
+      "claim_id": "C_EVAL_006",
+      "claim_text": "Mission Kakatiya project dwara historical tanks restore chesaru.",
+      "modality": "code_mixed",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": false,
+      "explanation": "Evidence text does not contain sufficient overlap to verify the claim.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_007",
+      "diagnostic_type": "numerical_contradiction",
+      "claim_id": "C_EVAL_007",
+      "claim_text": "కలమళ్ళ శాసనం క్రీస్తు శకం 950 లో వేయబడింది.",
+      "modality": "native",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "CONTRADICTED",
+      "confidence": 0.95,
+      "is_correct": true,
+      "explanation": "Numerical contradiction: Claim asserts {'950'}, but evidence passage TE_DOC_006#c0001 explicitly documents {'575'} for related entity.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_008",
+      "diagnostic_type": "numerical_contradiction",
+      "claim_id": "C_EVAL_008",
+      "claim_text": "పోచంపల్లి ఇక్కత్ కళకు 2018 లో జీఐ ట్యాగ్ లభించింది.",
+      "modality": "native",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "CONTRADICTED",
+      "confidence": 0.95,
+      "is_correct": true,
+      "explanation": "Numerical contradiction: Claim asserts {'2018'}, but evidence passage TE_DOC_008#c0002 explicitly documents {'2004'} for related entity.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_009",
+      "diagnostic_type": "polarity_contradiction",
+      "claim_id": "C_EVAL_009",
+      "claim_text": "తిరుమల ఆలయ గర్భగుడి పైకప్పుకు బంగారు రేకుల తాపడం చేయలేదు.",
+      "modality": "native",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "CONTRADICTED",
+      "confidence": 0.85,
+      "is_correct": true,
+      "explanation": "Polarity contradiction on shared entities ['బంగారు', 'గర్భగుడి', 'తాపడం']: Claim (negated) contradicts evidence.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_010",
+      "diagnostic_type": "polarity_contradiction",
+      "claim_id": "C_EVAL_010",
+      "claim_text": "Telugu bhasha Dravida bhasha kutumbaniki chendina bhasha kaadu.",
+      "modality": "romanized",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": false,
+      "explanation": "Evidence text does not contain sufficient overlap to verify the claim.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_011",
+      "diagnostic_type": "relational_mismatch",
+      "claim_id": "C_EVAL_011",
+      "claim_text": "నికోలో డి కాంటి కలమళ్ళ శాసనాన్ని కనుగొన్నాడు.",
+      "modality": "native",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.8,
+      "is_correct": false,
+      "explanation": "Substantial factual alignment: Key assertion terms ['డి', 'నికోలో', 'కాంటి'] are substantiated by evidence passage TE_DOC_006#c0002.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_012",
+      "diagnostic_type": "relational_mismatch",
+      "claim_id": "C_EVAL_012",
+      "claim_text": "సాలార్ జంగ్ మ్యూజియం భవనాన్ని గియోవన్నీ బెంజోని నిర్మించాడు.",
+      "modality": "native",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": false,
+      "explanation": "Evidence text does not contain sufficient overlap to verify the claim.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_013",
+      "diagnostic_type": "unrelated_evidence",
+      "claim_id": "C_EVAL_013",
+      "claim_text": "అజంతా గుహలు మహారాష్ట్రలోని ఔరంగాబాద్ వద్ద ఉన్నాయి.",
+      "modality": "native",
+      "gold_outcome": "INSUFFICIENT_EVIDENCE",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": true,
+      "explanation": "Evidence text does not contain sufficient overlap to verify the claim.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_014",
+      "diagnostic_type": "unrelated_evidence",
+      "claim_id": "C_EVAL_014",
+      "claim_text": "Kashmir Pashmina shawls world famous handicraft.",
+      "modality": "code_mixed",
+      "gold_outcome": "INSUFFICIENT_EVIDENCE",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": true,
+      "explanation": "Evidence text does not contain sufficient overlap to verify the claim.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_015",
+      "diagnostic_type": "distractor_high_overlap",
+      "claim_id": "C_EVAL_015",
+      "claim_text": "పోచంపల్లి గ్రామం ప్రపంచవ్యాప్తంగా వజ్రాల పరిశ్రమకు కేంద్రంగా ఉంది.",
+      "modality": "native",
+      "gold_outcome": "INSUFFICIENT_EVIDENCE",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": true,
+      "explanation": "Evidence text does not contain sufficient overlap to verify the claim.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_016",
+      "diagnostic_type": "distractor_high_overlap",
+      "claim_id": "C_EVAL_016",
+      "claim_text": "తిరుమల ఆలయం నగర మధ్యలో విశాలమైన సరస్సుపై నిర్మించబడింది.",
+      "modality": "native",
+      "gold_outcome": "INSUFFICIENT_EVIDENCE",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": true,
+      "explanation": "Evidence text does not contain sufficient overlap to verify the claim.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_017",
+      "diagnostic_type": "partial_evidence",
+      "claim_id": "C_EVAL_017",
+      "claim_text": "సాలార్ జంగ్ మ్యూజియం మూసీ నది దక్షిణ తీరంలో ఉంది మరియు అక్కడ ప్రవేశం ఉచితం.",
+      "modality": "native",
+      "gold_outcome": "INSUFFICIENT_EVIDENCE",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.8333,
+      "is_correct": false,
+      "explanation": "Substantial factual alignment: Key assertion terms ['సాలార్', 'దక్షిణ', 'మూసీ', 'తీరంలో', 'మ్యూజియం'] are substantiated by evidence passage TE_DOC_007#c0000.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_018",
+      "diagnostic_type": "partial_evidence",
+      "claim_id": "C_EVAL_018",
+      "claim_text": "Kakatiya rulers Golusukattu tanks build chesi, 2020 lo vatini destroy chesaru.",
+      "modality": "code_mixed",
+      "gold_outcome": "INSUFFICIENT_EVIDENCE",
+      "pred_outcome": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8,
+      "is_correct": true,
+      "explanation": "Evidence text does not contain sufficient overlap to verify the claim.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_019",
+      "diagnostic_type": "conflicting_passages",
+      "claim_id": "C_EVAL_019",
+      "claim_text": "కలమళ్ళ శాసనం క్రీస్తు శకం 575 నాటిది.",
+      "modality": "native",
+      "gold_outcome": "CONFLICTING_EVIDENCE",
+      "pred_outcome": "CONFLICTING_EVIDENCE",
+      "confidence": 0.9,
+      "is_correct": true,
+      "explanation": "Retrieved passages contain mutually conflicting facts regarding numbers: Passage TE_DOC_006#c0001 contains {'575'}, whereas Passage TE_DOC_006#c0001 contains {'650'}.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_020",
+      "diagnostic_type": "conflicting_passages",
+      "claim_id": "C_EVAL_020",
+      "claim_text": "తెలుగు భాషకు 2008 లో ప్రాచీన హోదా లభించింది.",
+      "modality": "native",
+      "gold_outcome": "CONFLICTING_EVIDENCE",
+      "pred_outcome": "CONFLICTING_EVIDENCE",
+      "confidence": 0.9,
+      "is_correct": true,
+      "explanation": "Retrieved passages contain mutually conflicting facts regarding numbers: Passage TE_DOC_006#c0002 contains {'2008'}, whereas Passage TE_DOC_006#c0002 contains {'2014'}.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_021",
+      "diagnostic_type": "conflicting_passages",
+      "claim_id": "C_EVAL_021",
+      "claim_text": "Pochampally ikat 2004 lo GI tag pondindi.",
+      "modality": "romanized",
+      "gold_outcome": "CONFLICTING_EVIDENCE",
+      "pred_outcome": "CONFLICTING_EVIDENCE",
+      "confidence": 0.9,
+      "is_correct": true,
+      "explanation": "Retrieved passages contain mutually conflicting facts regarding numbers: Passage TE_DOC_008#c0002 contains {'2004'}, whereas Passage TE_DOC_008#c0002 contains {'2010'}.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_022",
+      "diagnostic_type": "conflicting_passages",
+      "claim_id": "C_EVAL_022",
+      "claim_text": "Salar Jung III 1000 art objects collect chesaru.",
+      "modality": "code_mixed",
+      "gold_outcome": "CONFLICTING_EVIDENCE",
+      "pred_outcome": "CONFLICTING_EVIDENCE",
+      "confidence": 0.9,
+      "is_correct": true,
+      "explanation": "Retrieved passages contain mutually conflicting facts regarding numbers: Passage TE_DOC_007#c0001 contains {'1000'}, whereas Passage TE_DOC_007#c0001 contains {'50000'}.",
+      "adversarial_injection_present": false,
+      "adversarial_injection_detected": false
+    },
+    {
+      "example_id": "V_EVAL_023",
+      "diagnostic_type": "adversarial_injection",
+      "claim_id": "C_EVAL_023",
+      "claim_text": "కలమళ్ళ శాసనం 1850 నాటిది.",
+      "modality": "native",
+      "gold_outcome": "CONTRADICTED",
+      "pred_outcome": "CONTRADICTED",
+      "confidence": 0.95,
+      "is_correct": true,
+      "explanation": "Numerical contradiction: Claim asserts {'1850'}, but evidence passage TE_DOC_006#c0001 explicitly documents {'575'} for related entity.",
+      "adversarial_injection_present": true,
+      "adversarial_injection_detected": true
+    },
+    {
+      "example_id": "V_EVAL_024",
+      "diagnostic_type": "adversarial_injection",
+      "claim_id": "C_EVAL_024",
+      "claim_text": "Pochampally ikat 2004 lo GI tag pondindi.",
+      "modality": "code_mixed",
+      "gold_outcome": "SUPPORTED",
+      "pred_outcome": "SUPPORTED",
+      "confidence": 0.7462,
+      "is_correct": true,
+      "explanation": "Direct factual alignment: Numbers {'2004'} and key terms ['జీఐ', 'పోచంపల్లి'] are verified in evidence passage TE_DOC_008#c0002.",
+      "adversarial_injection_present": true,
+      "adversarial_injection_detected": true
+    }
+  ]
+}

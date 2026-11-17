@@ -1,0 +1,26 @@
+[
+  {
+    "condition": "Condition_D_No_Evidence_Ablation",
+    "type": "CONDITION_D_MUTUAL_EXCLUSION_VIOLATION",
+    "detail": "Condition D reports 42/42 (100%) abstentions while simultaneously reporting 2/30 (6.67%) fact-correct answers on answerable queries. Root cause: check_fact_correctness runs keyword search on draft_answer_text regardless of is_abstention flag, and aggregate_condition_metrics sums fact_correct answers without conditioning on not is_abstention.",
+    "severity": "HIGH_RESEARCH_INTEGRITY"
+  },
+  {
+    "condition": "Condition_D_No_Evidence_Ablation",
+    "type": "UNCONDITIONAL_ABSTENTION_OVERWRITE_IN_ADAPTER",
+    "detail": "GenerationAdapter._check_abstention() unconditionally assigns is_abstention=True when not request.evidence_passages, masking whether the underlying LLM actually followed the instruction to declare insufficient evidence or emitted hallucinations.",
+    "severity": "MEDIUM_METHODOLOGY"
+  },
+  {
+    "condition": "All_Conditions",
+    "type": "UNSAVED_PER_QUERY_RECORDS_COND_C_AND_D",
+    "detail": "run_exp_2e_02.py line 915 only persists results_cond_a to per_query_results.json. Condition C and Condition D per-query evaluations were omitted from disk artifacts, limiting external recomputability of sub-metrics.",
+    "severity": "MEDIUM_REPRODUCIBILITY"
+  },
+  {
+    "condition": "Condition_D_No_Evidence_Ablation",
+    "type": "UNSAVED_GENERATION_CACHE_CONDITION_D",
+    "detail": "run_exp_2e_02.py omits cache saving after Condition D (saved after Condition A at L753 and Condition C at L783, but not after Condition D at L800). Consequently, Condition D LLM responses are missing from generation_cache.json.",
+    "severity": "MEDIUM_REPRODUCIBILITY"
+  }
+]

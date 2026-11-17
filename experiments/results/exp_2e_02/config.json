@@ -1,0 +1,21 @@
+{
+  "experiment_id": "EXP-2E-02",
+  "timestamp_utc": "2026-10-16T12:02:17.178167+00:00",
+  "provider": "api",
+  "model_id": "llama3.2:1b",
+  "temperature": 0.0,
+  "max_tokens": 80,
+  "top_k_evidence": 3,
+  "split_evaluated": "both",
+  "dataset_hashes": {
+    "phase2d_chunks.jsonl": "8a51ae3069b3f7336947d3ed972276fbd7378133d269aec2e8b0d7493797b543",
+    "phase2d_eval_queries_dev.jsonl": "aaf983b524147116b7289c681745d2d359b9299842524183e70b73f807998965",
+    "phase2d_eval_queries_eval.jsonl": "da26df140621b82b12567bdc29040768cb8241d258689f534c8ae4ce130c0609",
+    "dev_verification.jsonl": "2d4ed26b4a61c71834a229dac833a3fb6cdafa72dfca795d1c4733d10c6590df",
+    "eval_verification.jsonl": "2763b534068b2b4813701915f542d79fb04e7da4e3e461aef77805da293de682"
+  },
+  "system_info": {
+    "python_version": "3.12.6 (tags/v3.12.6:a4a2d2b, Sep  6 2024, 20:11:23) [MSC v.1940 64 bit (AMD64)]",
+    "platform": "win32"
+  }
+}
